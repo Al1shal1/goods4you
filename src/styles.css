@@ -69,7 +69,6 @@ button {
     margin: 0 auto;
 }
 
-.logo {}
 
 /**************************HEADER****************************/
 
@@ -86,7 +85,6 @@ button {
     padding-top: 23px;
 }
 
-.header__logo {}
 
 .header__navigation {
     display: flex;
@@ -125,8 +123,6 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.footer__logo {
 }
 
 .footer__navigation {
