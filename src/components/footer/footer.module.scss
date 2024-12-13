@@ -1,0 +1,26 @@
+.footer {
+    background-color: #444B58;
+    height: 90px;
+    color: #fff;
+    width: 100%;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 23px;
+}
+
+.footer__navigation {
+    display: flex;
+    font-size: 14px;
+}
+
+.footer__navigation_item {
+    margin-right: 35px;
+    &:last-child {
+        margin-right: 0;
+    }
+}

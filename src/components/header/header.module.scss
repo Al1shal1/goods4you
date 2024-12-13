@@ -1,0 +1,33 @@
+.header {
+    background-color: #484283;
+    color: #fff;
+
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    padding: 23px 0 23px;
+}
+
+
+.header__navigation {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.header__navigation_item {
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.header__navigation_busket {
+    margin-right: 6px;
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import './styles/fonts.scss';
 
 body {
     font-family: "Jost", sans-serif;
@@ -69,69 +69,6 @@ button {
     margin: 0 auto;
 }
 
-
-/**************************HEADER****************************/
-
-.header {
-    height: 90px;
-    background-color: #484283;
-    color: #fff;
-
-}
-
-.header__content {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 23px;
-}
-
-
-.header__navigation {
-    display: flex;
-    font-size: 14px;
-    align-items: center;
-}
-
-.header__navigation-item {
-    margin-right: 35px;
-    display: flex;
-    align-items: center;
-}
-
-.header__navigation-item:last-child {
-    margin-right: 0;
-}
-
-.header__navigation-busket {
-    margin-right: 6px;
-}
-
-
-/**************************FOOTER****************************/
-.footer {
-    padding-top: 23px;
-    background-color: #444B58;
-    height: 90px;
-    color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.footer__content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer__navigation {
-    display: flex;
-    font-size: 14px;
-}
-.footer__navigation-item{
-    margin-right: 35px;
-}
-.footer__navigation-item:last-child{
-    margin-right: 0;
+.page {
+    position: relative;
 }

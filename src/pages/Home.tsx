@@ -1,21 +1,21 @@
 
-import { Footer } from "../components/footer"
-import { Headers } from "../components/header"
-import { RedButton } from "../components/RedButton"
+import { Hero } from "src/components/hero/hero"
+import { Footer } from "../components/footer/footer"
+import { Headers } from "../components/header/header"
+import { FAQ } from "src/components/FAQ/FAQ"
+import { Catalog } from "src/components/catalog/catalog"
 
-export const Home = () =>{
-    return(
+export const Home = () => {
+    return (
         <>
-        <Headers />
-        <div className="hero">
-            <div className="hero__content">
-                <h1 className="hero__content-text">Any products from famous brands with worldwide delivery</h1>
-                <h3 className="hero__content-subtitle">We sell smartphones, laptops, clothes, shoes and many other products at low prices</h3>
-                <RedButton></RedButton>
+            <div className="page">
+                <Headers />
+                <Hero />
+                <Catalog />
+                <FAQ />
+                <Footer />
             </div>
-        </div>
-        <Footer />
         </>
-    
+
     )
 }
