@@ -10,6 +10,7 @@ body {
 * body, html, #root, .page {
     min-height: 100vh;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 a {

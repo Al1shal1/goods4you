@@ -3,7 +3,7 @@ import styles from './catalog.module.scss'
 
 export const Catalog = () => {
     return (
-        <main className={styles.catalog}>
+        <main id="catalog" className={styles.catalog}>
             <div className="container">
                 <h2 className={styles.catalog__title}>Catalog</h2>
                 <input type="text" placeholder="Search by title" className={styles.catalog__search} />
@@ -11,6 +11,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -25,6 +27,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -39,6 +43,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -53,6 +59,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -67,6 +75,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -81,6 +91,8 @@ export const Catalog = () => {
                     <li >
                         <a href="" className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
                         </a>
                         <div className={styles.catalog__content}>
                             <div >
@@ -92,6 +104,7 @@ export const Catalog = () => {
                             </div>
                         </div>
                     </li>
+                    
                 </ul>
                 <div className={styles.catalog__show_btn}>
                     <RedButton text="Show more" />

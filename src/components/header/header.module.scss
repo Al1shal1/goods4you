@@ -26,6 +26,11 @@
     &:last-child {
         margin-right: 0;
     }
+
+    &:hover{
+        color: #C4C4C4;
+        text-decoration: underline;
+    }
 }
 
 .header__navigation_busket {

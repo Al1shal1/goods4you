@@ -11,8 +11,8 @@ export const Footer = () => {
                 </a>
                 <ul className={styles.footer__navigation}>
                     <li className={styles.footer__navigation_item}>
-                        <a href="">Catalog</a></li>
-                    <li className={styles.footer__navigation_item}><a href="">FAQ</a></li>
+                        <a href="#catalog">Catalog</a></li>
+                    <li className={styles.footer__navigation_item}><a href="#faq">FAQ</a></li>
                 </ul>
                 </div>
             </div>

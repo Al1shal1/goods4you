@@ -12,8 +12,10 @@ export const Headers = () => {
                     </a>
                     <ul className={styles.header__navigation}>
                         <li className={styles.header__navigation_item}>
-                            <a href="">Catalog</a></li>
-                        <li className={styles.header__navigation_item}><a href="">FAQ</a></li>
+                            <a href="#catalog" >Catalog</a></li>
+                        <li className={styles.header__navigation_item}>
+                            <a href="#faq">FAQ</a>
+                            </li>
                         <li className={styles.header__navigation_item}>
                             <a href="" className={styles.header__navigation_busket}>Cart</a>
                             <Cart />

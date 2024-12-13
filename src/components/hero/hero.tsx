@@ -9,7 +9,7 @@ export const Hero = () => {
                     <h1 className={styles.hero__content_text}>Any products from famous brands with worldwide delivery</h1>
                     <h3 className={styles.hero__content_subtitle}>We sell smartphones, laptops, clothes, shoes and many other products at low prices</h3>
                 </div>
-                <RedButton text="Go to shopping"/>
+                <RedButton text="Go to shopping" targetId="catalog"/>
             </div>
         </div>
     )
