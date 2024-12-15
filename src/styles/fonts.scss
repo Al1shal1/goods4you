@@ -12,6 +12,12 @@
 }
 @font-face {
     font-family: 'Jost';
+    src: url('/src/assets/fonts/static/Jost-Medium.ttf') format('ttf');
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Jost';
     src: url('/src/assets/fonts/static/Jost-Bold.ttf') format('ttf');
     font-style: normal;
     font-weight: 700;

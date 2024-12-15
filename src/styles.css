@@ -73,3 +73,8 @@ button {
 .page {
     position: relative;
 }
+
+.products{
+    display: flex;
+    justify-content: space-between;
+}
