@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { RedButton } from "../RedButton/RedButton"
 import styles from './catalog.module.scss'
 
@@ -9,11 +10,11 @@ export const Catalog = () => {
                 <input type="text" placeholder="Search by title" className={styles.catalog__search} />
                 <ul className={styles.catalog__list}>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -25,11 +26,11 @@ export const Catalog = () => {
                         </div>
                     </li>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -41,11 +42,11 @@ export const Catalog = () => {
                         </div>
                     </li>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -57,11 +58,11 @@ export const Catalog = () => {
                         </div>
                     </li>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -73,11 +74,11 @@ export const Catalog = () => {
                         </div>
                     </li>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -89,11 +90,11 @@ export const Catalog = () => {
                         </div>
                     </li>
                     <li >
-                        <a href="" className={styles.catalog__link}>
+                        <Link to='/product' className={styles.catalog__link}>
                             <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
-                        </a>
+                        </Link>
                         <div className={styles.catalog__content}>
                             <div >
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
@@ -104,6 +105,7 @@ export const Catalog = () => {
                             </div>
                         </div>
                     </li>
+                    
                     
                 </ul>
                 <div className={styles.catalog__show_btn}>
