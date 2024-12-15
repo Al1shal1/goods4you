@@ -33,6 +33,16 @@
     }
 }
 
+.header__logo_img{
+min-height: 44px;
+min-width: 164px;
+}
+
 .header__navigation_busket {
     margin-right: 6px;
+}
+
+.header__busket_img{
+    min-width: 20px;
+    min-height: 20px;
 }

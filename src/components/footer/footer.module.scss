@@ -9,8 +9,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding-top: 23px;
+}
+
+.footer__logo{
+min-width: 164px;
+min-height: 44px;
 }
 
 .footer__navigation {

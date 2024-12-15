@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import { RedButton } from "../RedButton/RedButton"
 import styles from './catalog.module.scss'
+import boots from '../../icons/boots.png'
+import basket from '../../icons/basket.svg';
 
 export const Catalog = () => {
     return (
@@ -11,7 +13,7 @@ export const Catalog = () => {
                 <ul className={styles.catalog__list}>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -21,13 +23,13 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -37,13 +39,13 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -53,13 +55,13 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -69,13 +71,13 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -85,13 +87,13 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
                     <li >
                         <Link to='/product' className={styles.catalog__link}>
-                            <img src="/src/icons/boots.png" alt="boots" className={styles.catalog__image} />
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
@@ -101,11 +103,10 @@ export const Catalog = () => {
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
                             <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc="/src/icons/basket.svg" padding="16px"/>
+                                <RedButton imageSrc={basket} padding="16px"/>
                             </div>
                         </div>
                     </li>
-                    
                     
                 </ul>
                 <div className={styles.catalog__show_btn}>

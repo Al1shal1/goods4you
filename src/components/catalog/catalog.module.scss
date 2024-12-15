@@ -112,8 +112,14 @@
     line-height: 24px;
 }
 
+.catalog__basket_btn{
+    max-width: 50px;
+    max-height: 50px;
+}
+
 .catalog__show_btn {
     margin-top: 48px;
     display: flex;
     justify-content: center;
+    max-height: 62px;
 }

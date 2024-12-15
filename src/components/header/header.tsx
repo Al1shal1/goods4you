@@ -8,9 +8,11 @@ export const Headers = () => {
         <header className={styles.header}>
             <div className="container">
                 <div className={styles.header__content}>
-                    <a href="/" className={styles.header__logo}>
-                        <LogoImg />
-                    </a>
+                    <Link to="/" className={styles.header__logo}>
+                        <div className={styles.header__logo_img}>
+                            <LogoImg />
+                            </div>
+                    </Link>
                     <ul className={styles.header__navigation}>
                         <li className={styles.header__navigation_item}>
                             <a href="#catalog" >Catalog</a></li>
@@ -19,10 +21,12 @@ export const Headers = () => {
                             </li>
                         <li className={styles.header__navigation_item}>
                             <Link to="/cart" className={styles.header__navigation_busket}>Cart</Link>
-                            <Cart />
+                            <div className={styles.header__busket_img}>
+                                <Cart />
+                                </div>
                         </li>
                         <li className={styles.header__navigation_item}>
-                            <a href="">Johnson Smith</a></li>
+                            <a href="/">Johnson Smith</a></li>
                     </ul>
                 </div>
             </div>
