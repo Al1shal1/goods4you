@@ -15,9 +15,9 @@ export const Headers = () => {
                     </Link>
                     <ul className={styles.header__navigation}>
                         <li className={styles.header__navigation_item}>
-                            <a href="#catalog" >Catalog</a></li>
+                            <Link to="/#catalog" >Catalog</Link></li>
                         <li className={styles.header__navigation_item}>
-                            <a href="#faq">FAQ</a>
+                            <Link to="/#faq">FAQ</Link>
                             </li>
                         <li className={styles.header__navigation_item}>
                             <Link to="/cart" className={styles.header__navigation_busket}>Cart</Link>
