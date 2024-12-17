@@ -1,0 +1,11 @@
+.controls{
+    display: flex;
+    width: 188px ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls__left{
+    display: flex;
+    min-height: 50px;
+}
