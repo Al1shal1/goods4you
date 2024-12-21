@@ -6,7 +6,7 @@ export const FAQ = () => {
     
     return (
         <div id='faq' className={styles.frequently_asked_question}>
-            <div className="container">
+            <div className={styles.faq__container}>
                 <div className={styles.faq__content}>
                     <h2 className={styles.faq__title}>FAQ</h2>
                     <div className={styles.faq__accordion}>

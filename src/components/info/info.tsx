@@ -1,8 +1,22 @@
 import { Star } from 'src/icons/star'
 import { RedButton } from '../RedButton/RedButton'
 import styles from './info.module.scss'
+import { useState } from 'react'
+import { CountBtn } from '../CountBtn/CountBtn'
 
 export const Info = () => {
+
+    const [addToCart, setAddToCart] = useState(false);
+
+    const handleAddToCart = () => {
+        setAddToCart(true)
+    }
+
+
+    const handleResetToCart = () => {
+        setAddToCart(false)
+    }
+
     return (
         <div className={styles.info}>
             <div className={styles.info__title}>Essence Mascara Lash Princess</div>
@@ -51,7 +65,13 @@ export const Info = () => {
                         <div className={styles.info__buy_percent}>14.5%</div>
                     </div>
                 </div>
-                <RedButton text='Add to cart' />
+                {!addToCart ? (
+                    <button onClick={handleAddToCart} >
+                        <RedButton text='Add to cart' />
+                        </button>
+                ) : 
+                    <CountBtn onResetToCart={handleResetToCart}/>
+                    }
             </div>
         </div>
     )

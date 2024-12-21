@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styles from './RedButton.module.scss'
 
 interface BtnProps{
@@ -12,6 +12,11 @@ export const RedButton:React.FC<BtnProps> = ({text, imageSrc, targetId = '', pad
     const BtnStyle = {
         padding: padding
     }
+
+    const handle = () => {
+        handleScrollToSection()
+        handleAddToCart()
+    }
     
     const handleScrollToSection = () => {
         const targetElement = document.getElementById(targetId);
@@ -20,10 +25,20 @@ export const RedButton:React.FC<BtnProps> = ({text, imageSrc, targetId = '', pad
         }
     }
 
+    const [isAddedToCart , setIsAddedToCart] = useState(false);
+    const handleAddToCart = () => {
+        if (!isAddedToCart) {
+            setIsAddedToCart(true)
+        }
+    }
+
     return(
-        <button className={styles.red_btn} style={BtnStyle} onClick={handleScrollToSection}>
+        <>
+            <button className={styles.red_btn} style={BtnStyle} onClick={handle}>
             {imageSrc && <img src={imageSrc} alt="button icon" />} 
             {text}
             </button>
+        
+        </>
     )
 }

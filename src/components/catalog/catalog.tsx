@@ -4,9 +4,20 @@ import styles from './catalog.module.scss'
 import boots from '../../icons/boots.png'
 import basket from '../../icons/basket.svg';
 import { useScrollToHash } from "src/hooks/useScrollToHash";
+import { useState } from "react";
+import { CountBtn } from "../CountBtn/CountBtn";
 
 export const Catalog = () => {
     useScrollToHash()
+    const [isBtnClicked, setIsBtnClicked] = useState(false)
+
+    const handleClick = () => {
+        setIsBtnClicked(true)
+    }
+
+const handleResetToCart = () => {
+    setIsBtnClicked(false)
+}
 
     return (
         <main id="catalog" className={styles.catalog}>
@@ -21,13 +32,15 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked  ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart} />}
                         </div>
                     </li>
                     <li id="2">
@@ -37,13 +50,15 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart} />}
                         </div>
                     </li>
                     <li id="3">
@@ -53,13 +68,15 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
                     <li id="4" >
@@ -69,13 +86,15 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
                     <li id="5">
@@ -85,13 +104,15 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
                     <li id="6">
@@ -101,32 +122,126 @@ export const Catalog = () => {
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="6">
-                        <Link to='/product/6' className={styles.catalog__link}>
+                    <li id="7">
+                        <Link to='/product/7' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
                             <div className={styles.catalog__image_overlay}></div>
                         </Link>
                         <div className={styles.catalog__content}>
-                            <div >
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
                                 <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
                                 <div className={styles.catalog__price}>$110</div>
                             </div>
-                            <div className={styles.catalog__basket_btn}>
-                                <RedButton imageSrc={basket} padding="16px"/>
-                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    
+                    <li id="8">
+                        <Link to='/product/8' className={styles.catalog__link}>
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
+                        </Link>
+                        <div className={styles.catalog__content}>
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
+                                <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
+                                <div className={styles.catalog__price}>$110</div>
+                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
+                        </div>
+                    </li>
+                    <li id="9">
+                        <Link to='/product/9' className={styles.catalog__link}>
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
+                        </Link>
+                        <div className={styles.catalog__content}>
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
+                                <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
+                                <div className={styles.catalog__price}>$110</div>
+                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
+                        </div>
+                    </li>
+                    <li id="10">
+                        <Link to='/product/10' className={styles.catalog__link}>
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
+                        </Link>
+                        <div className={styles.catalog__content}>
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
+                                <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
+                                <div className={styles.catalog__price}>$110</div>
+                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
+                        </div>
+                    </li>
+                    <li id="11">
+                        <Link to='/product/11' className={styles.catalog__link}>
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
+                        </Link>
+                        <div className={styles.catalog__content}>
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
+                                <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
+                                <div className={styles.catalog__price}>$110</div>
+                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
+                        </div>
+                    </li>
+                    <li id="12">
+                        <Link to='/product/12' className={styles.catalog__link}>
+                            <img src={boots} alt="boots" className={styles.catalog__image} />
+                            <div className={styles.catalog__image_text}>Show details</div>
+                            <div className={styles.catalog__image_overlay}></div>
+                        </Link>
+                        <div className={styles.catalog__content}>
+                            <div className={styles.catalog__content_left} style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}>
+                                <h5 className={styles.catalog__name}>Essence Mascara Lash Princess</h5>
+                                <div className={styles.catalog__price}>$110</div>
+                            </div>
+                            {!isBtnClicked ? (
+                                <div className={styles.catalog__basket_btn} onClick={handleClick}>
+                                    <RedButton imageSrc={basket} padding="16px" />
+                                </div>
+                            ): <CountBtn onResetToCart={handleResetToCart}/>}
+                        </div>
+                    </li>
+
                 </ul>
                 <div className={styles.catalog__show_btn}>
                     <RedButton text="Show more" />

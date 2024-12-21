@@ -1,11 +1,24 @@
-.controls{
+@import '../RedButton/RedButton.module.scss';
+
+.controls {
     display: flex;
-    width: 188px ;
+    width: 188px;
     justify-content: space-between;
     align-items: center;
 }
 
-.controls__left{
+.controls__left {
     display: flex;
     min-height: 50px;
+}
+
+.controls__items {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+.controls_btn{
+@extend .red_btn;
+padding: 16px;
 }
