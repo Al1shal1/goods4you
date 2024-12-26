@@ -18,7 +18,27 @@
     font-weight: 400;
     line-height: 140%;
 }
-.controls_btn{
-@extend .red_btn;
-padding: 16px;
+
+.controls_btn {
+    @extend .red_btn;
+    padding: 16px;
+}
+
+@media (max-width: 550px) {
+    .controls {
+        width: 145px;
+        }
+}
+
+
+@media (max-width: 320px) {
+    .controls {
+    width: 132px;
+    }
+    .controls__left{
+        min-height: 38px;
+    }
+    .controls_btn{
+        padding: 10px;
+    }
 }

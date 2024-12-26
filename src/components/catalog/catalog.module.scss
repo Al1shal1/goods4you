@@ -61,8 +61,6 @@
 
 .catalog__image {
     border-radius: 4px;
-    width: 370px;
-    height: 300px;
     transition: opacity 0.5s ease;
 
     &:hover {
@@ -80,6 +78,7 @@
     font-size: 26px;
     font-weight: 800;
     transition: opacity 0.5s ease;
+    text-align: center;
 }
 
 .catalog__image_overlay {
@@ -95,7 +94,7 @@
 .catalog__content {
     margin: 10px 0 6px;
     display: flex;
-    justify-content: space-between; //стандарт
+    justify-content: space-between;
 }
 
 .catalog__content_left{
@@ -127,4 +126,33 @@
     display: flex;
     justify-content: center;
     max-height: 62px;
+}
+
+
+@media (max-width: 1280px) {
+    .catalog__list{
+        grid-template-columns: repeat(2, 332px);
+    justify-content: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .catalog__list{
+        grid-template-columns: repeat(2, 332px);
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog__list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 320px) {
+    .catalog__content{
+        width: 270px;
+    }
+    
 }

@@ -38,3 +38,9 @@ min-height: 44px;
         text-decoration: underline;
     }
 }
+
+@media (max-width: 320px) {
+    .footer__content{
+        flex-direction: column;
+    }
+}

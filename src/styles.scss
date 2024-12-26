@@ -7,7 +7,10 @@ body {
     color: #444B58;
 }
 
-* body, html, #root, .page {
+* body,
+html,
+#root,
+.page {
     min-height: 100vh;
     margin: 0;
     scroll-behavior: smooth;
@@ -74,21 +77,68 @@ button {
     position: relative;
 }
 
-.products{
+.products {
     display: flex;
     justify-content: space-between;
+    gap: 30px;
 }
 
-.cart_container{
+.cart_container {
     display: grid;
     grid-template-columns: 776px 356px;
     gap: 48px;
     margin: 48px 0 48px;
 }
 
-.title{
+.title {
     font-size: 36px;
-font-weight: 700;
-line-height: 56px;
-margin-top: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    margin-top: 48px;
+}
+
+@media (max-width: 1280px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .products {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 90px;
+        gap: 0;
+    }
+
+    .cart_container {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 90px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 520px;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .container {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        max-width: 250px;
+    }
+
 }

@@ -71,3 +71,40 @@
 
     }
 }
+
+@media (max-width: 992px) {
+    .cart {
+        width: 720px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart {
+        width: 520px;
+    }
+
+    .cart__form_item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .cart {
+        max-width: 320px;
+    }
+
+    .cart__form_left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 320px) {
+    .cart {
+        max-width: 250px;
+    }
+
+}

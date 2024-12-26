@@ -79,3 +79,33 @@ details[open] {
         transform: rotate(45deg);
     }
 }
+
+@media (max-width: 1280px) {
+    .faq__container{
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 992px) {
+    .faq__container{
+        max-width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq__container{
+        max-width: 500px;
+    }
+}
+@media (max-width: 550px) {
+    .faq__container{
+        max-width: 300px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .faq__container{
+        max-width: 200px;
+    }
+}

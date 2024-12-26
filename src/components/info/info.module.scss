@@ -69,6 +69,7 @@
 
 .info__buy_info{
     display: flex;
+    align-items: center;
 }
 .info__buy_prices{
     display: flex;
@@ -105,4 +106,62 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
+}
+
+@media (max-width: 1280px) {
+    .info__title{
+        text-align: center;
+    }
+    
+    
+}
+
+@media (max-width: 550px) {
+    .info__title{
+        text-align: start;
+    }
+    .info__buy{
+        flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    }
+    .info{
+        max-width: 310px;
+    }
+    .info__rating{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .info__title{
+        font-size: 25px;
+        text-align: center;
+    }
+    .info__rating{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .info__stock{
+        text-align: center;
+    }
+    .info__description{
+        text-align: center;
+    }
+    .info__other_list{
+        align-items: center;
+    }
+    .info__buy_prices{
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    .info__buy_info{
+        flex-direction: column;
+    }
+    .info__buy_texts{
+        border: none;
+    }
 }

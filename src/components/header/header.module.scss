@@ -46,3 +46,23 @@ min-width: 164px;
     min-width: 20px;
     min-height: 20px;
 }
+
+
+@media (max-width: 550px) {
+    .header__content{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+
+@media (max-width: 320px) {
+    .header__navigation{
+        justify-content: center;
+        flex-direction: column;
+        gap: 7px;
+    align-items: flex-start;
+    }
+}

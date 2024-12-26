@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from './pages/Home';
 import { Product } from './pages/Product'
-import "./styles.css"
+import "./styles.scss"
 import { Cart } from "./pages/Cart";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
