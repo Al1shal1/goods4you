@@ -46,6 +46,9 @@
     font-style: normal;
     font-weight: 600;
     line-height: 22px;
+    &:hover{
+        text-decoration: underline;
+    }
 }
 
 .cart__form_about_price {

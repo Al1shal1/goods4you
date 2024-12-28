@@ -25,7 +25,7 @@ const handleResetToCart = () => {
                 <h2 className={styles.catalog__title}>Catalog</h2>
                 <input type="text" placeholder="Search by title" className={styles.catalog__search} />
                 <ul className={styles.catalog__list}>
-                    <li id="1">
+                    <li id="1" className={styles.catalog__list_item}>
                         <Link to='/product/1' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -43,7 +43,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart} />}
                         </div>
                     </li>
-                    <li id="2">
+                    <li id="2" className={styles.catalog__list_item}>
                         <Link to='/product/2' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -61,7 +61,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart} />}
                         </div>
                     </li>
-                    <li id="3">
+                    <li id="3" className={styles.catalog__list_item}>
                         <Link to='/product/3' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -79,7 +79,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="4" >
+                    <li id="4" className={styles.catalog__list_item}>
                         <Link to='/product/4' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -97,7 +97,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="5">
+                    <li id="5" className={styles.catalog__list_item}>
                         <Link to='/product/5' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -115,7 +115,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="6">
+                    <li id="6" className={styles.catalog__list_item}>
                         <Link to='/product/6' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -133,7 +133,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="7">
+                    <li id="7" className={styles.catalog__list_item}>
                         <Link to='/product/7' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -151,7 +151,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="8">
+                    <li id="8" className={styles.catalog__list_item}>
                         <Link to='/product/8' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -169,7 +169,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="9">
+                    <li id="9" className={styles.catalog__list_item}>
                         <Link to='/product/9' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -187,7 +187,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="10">
+                    <li id="10" className={styles.catalog__list_item}>
                         <Link to='/product/10' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -205,7 +205,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="11">
+                    <li id="11" className={styles.catalog__list_item}>
                         <Link to='/product/11' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
@@ -223,7 +223,7 @@ const handleResetToCart = () => {
                             ): <CountBtn onResetToCart={handleResetToCart}/>}
                         </div>
                     </li>
-                    <li id="12">
+                    <li id="12" className={styles.catalog__list_item}>
                         <Link to='/product/12' className={styles.catalog__link}>
                             <img src={boots} alt="boots" className={styles.catalog__image} />
                             <div className={styles.catalog__image_text}>Show details</div>
