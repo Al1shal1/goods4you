@@ -46,7 +46,7 @@ export default tseslint.config(
       'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
       'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
       'react/self-closing-comp': ['error', { component: true, html: true }],
-      'max-lines': ['warn', { max: 124 }],
+      'max-lines': ['warn', { max: 1000 }],
       'max-params': ['error', 3],
     },
   },
