@@ -1,4 +1,4 @@
-import { CatalogItem } from "@components/catalog-item/";
+import { CatalogItem } from "@components/catalog-item";
 import styles from "./Catalog.module.scss";
 import { RedButton } from "@ui-kit/red-button";
 import { Input } from "@ui-kit/input";
