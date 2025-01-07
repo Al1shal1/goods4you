@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
-import { Footer } from "src/ui-kit/footer";
-import { Headers } from "src/ui-kit/header";
-import { RedButton } from "src/ui-kit/red-button";
+import { Footer } from "@ui-kit/footer";
+import { Headers } from "@ui-kit/header";
+import { RedButton } from "@ui-kit/red-button";
+import { UseScrollToSection } from "@hooks/UseScrollToSection";
 
 export const NotFoundPage = () => {
+  const { handleScrollToSection } = UseScrollToSection();
+
+  const handleBtnClick = () => {
+    handleScrollToSection("/");
+  };
+
   return (
     <div>
       <Headers />
@@ -12,7 +19,7 @@ export const NotFoundPage = () => {
           404 - Страница не найдена
         </h1>
         <Link to="/">
-          <RedButton text="Перейти на главную" />
+          <RedButton text="Перейти на главную" onClick={handleBtnClick} />
         </Link>
       </div>
       <Footer />

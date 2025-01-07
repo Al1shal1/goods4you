@@ -1,19 +1,15 @@
-import { Star } from "src/icons/star";
-import { RedButton } from "../../ui-kit/red-button";
+import { Star } from "@icons/star";
+import { RedButton } from "@ui-kit/red-button";
 import styles from "./info.module.scss";
-import { useState } from "react";
-import { CountBtn } from "../../ui-kit/count-btn";
+import { CountBtn } from "@ui-kit/count-btn";
+import { UseToggleState } from "@hooks/UseToggleState";
 
 export const Info = () => {
-  const [addToCart, setAddToCart] = useState(false);
-
-  const handleAddToCart = () => {
-    setAddToCart(true);
-  };
-
-  const handleResetToCart = () => {
-    setAddToCart(false);
-  };
+  const {
+    state: addToCart,
+    setTrue: handleAddToCart,
+    setFalse: handleResetToCart,
+  } = UseToggleState();
 
   return (
     <div className={styles.info}>

@@ -20,9 +20,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "src/*" : ["src/*"]
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
+      "@hooks/*": ["hooks/*"],
+      "@icons/*":[ "icons/*"],
+      "@ui-kit/*": ["ui-kit/*"]
     }
   },
   "include": ["src"],

@@ -1,5 +1,5 @@
 import styles from "./galery.module.scss";
-import boots_white from "../../icons/boots_white.png";
+import boots_white from "@icons/boots_white.png";
 
 export const Galery = () => {
   return (

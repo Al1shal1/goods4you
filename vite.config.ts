@@ -10,7 +10,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      src: "/src",
+      "@components": "/src/components",
+      "@assets": "/src/assets",
+      "@hooks": "/src/hooks",
+      "@icons": "/src/icons",
+      "@ui-kit": "/src/ui-kit",
     },
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".css"],
   },

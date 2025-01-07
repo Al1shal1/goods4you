@@ -1,8 +1,8 @@
-import { Galery } from "src/components/galery";
-import { Footer } from "../ui-kit/footer";
-import { Headers } from "../ui-kit/header";
-import { Info } from "src/components/info";
+import { Galery } from "@components/galery";
+import { Info } from "@components/info";
 import { Helmet } from "react-helmet";
+import { Footer } from "@ui-kit/footer";
+import { Headers } from "@ui-kit/header";
 
 export const Product = () => {
   return (

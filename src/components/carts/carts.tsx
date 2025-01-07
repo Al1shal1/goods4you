@@ -1,21 +1,17 @@
 import styles from "./carts.module.scss";
-import boots_white from "../../icons/boots_white.png";
-import { CountBtn } from "../../ui-kit/count-btn";
+import boots_white from "@icons/boots_white.png";
+import { CountBtn } from "@ui-kit/count-btn";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { RedButton } from "../../ui-kit/red-button";
-import basket from "../../icons/basket.svg";
+import { RedButton } from "@ui-kit/red-button";
+import basket from "@icons/basket.svg";
+import { UseToggleState } from "@hooks/UseToggleState";
 
 export const Carts = () => {
-  const [isDelete, setIsDelete] = useState(false);
-
-  const handleDelete = () => {
-    setIsDelete(true);
-  };
-
-  const handleAddToCart = () => {
-    setIsDelete(false);
-  };
+  const {
+    state: isDelete,
+    setTrue: handleDelete,
+    setFalse: handleAddToCart,
+  } = UseToggleState();
 
   return (
     <div className={styles.cart}>

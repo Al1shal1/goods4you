@@ -1,8 +1,8 @@
-import { Total } from "src/components/total";
-import { Footer } from "../ui-kit/footer";
-import { Headers } from "../ui-kit/header";
-import { Carts } from "src/components/carts";
 import { Helmet } from "react-helmet";
+import { Carts } from "@components/carts";
+import { Total } from "@components/total";
+import { Headers } from "@ui-kit/header";
+import { Footer } from "@ui-kit/footer";
 
 export const Cart = () => {
   return (

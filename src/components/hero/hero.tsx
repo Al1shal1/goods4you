@@ -1,7 +1,14 @@
-import { RedButton } from "../../ui-kit/red-button";
+import { RedButton } from "@ui-kit/red-button";
 import styles from "./hero.module.scss";
+import { UseScrollToSection } from "@hooks/UseScrollToSection";
 
 export const Hero = () => {
+  const { handleScrollToSection } = UseScrollToSection();
+
+  const handleBtnClick = () => {
+    handleScrollToSection("catalog");
+  };
+
   return (
     <div className={styles.hero}>
       <div className="container">
@@ -14,7 +21,7 @@ export const Hero = () => {
             at low prices
           </h3>
         </div>
-        <RedButton text="Go to shopping" targetId="catalog" />
+        <RedButton text="Go to shopping" onClick={handleBtnClick} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-import { Hero } from "src/components/hero";
-import { Footer } from "../ui-kit/footer";
-import { Headers } from "../ui-kit/header";
-import { FAQ } from "src/components/FAQ";
-import { Catalog } from "src/components/catalog";
+import { Hero } from "@components/hero";
+import { Footer } from "@ui-kit/footer";
+import { Headers } from "@ui-kit/header";
+import { FAQ } from "@components/FAQ";
+import { Catalog } from "@components/catalog";
 import { Helmet } from "react-helmet";
 
 export const Home = () => {

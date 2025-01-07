@@ -1,5 +1,5 @@
 import styles from "./FAQ.module.scss";
-import { useScrollToHash } from "src/hooks/useScrollToHash";
+import { useScrollToHash } from "@hooks/UseScrollToHash";
 
 export const FAQ = () => {
   useScrollToHash();
