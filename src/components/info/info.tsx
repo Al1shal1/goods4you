@@ -1,6 +1,6 @@
 import { Star } from "@icons/star";
 import { RedButton } from "@ui-kit/red-button";
-import styles from "./info.module.scss";
+import styles from "./Info.module.scss";
 import { CountBtn } from "@ui-kit/count-btn";
 import { UseToggleState } from "@hooks/UseToggleState";
 

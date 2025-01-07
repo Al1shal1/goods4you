@@ -2,7 +2,7 @@ import styles from "./CatalogItem.module.scss";
 import boots from "@icons/boots.png";
 import basket from "@icons/basket.svg";
 import { Link } from "react-router-dom";
-import { useScrollToHash } from "@hooks/UseScrollToHash";
+import { UseScrollToHash } from "@hooks/UseScrollToHash";
 import { CountBtn } from "@ui-kit/count-btn";
 import { RedButton } from "@ui-kit/red-button";
 import { UseToggleState } from "@hooks/UseToggleState";
@@ -16,7 +16,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({
   id = "1",
   to = "/product/1",
 }) => {
-  useScrollToHash();
+  UseScrollToHash();
   const {
     state: isBtnClicked,
     setTrue: handleClick,

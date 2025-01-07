@@ -1,8 +1,8 @@
 import styles from "./FAQ.module.scss";
-import { useScrollToHash } from "@hooks/UseScrollToHash";
+import { UseScrollToHash } from "@hooks/UseScrollToHash";
 
 export const FAQ = () => {
-  useScrollToHash();
+  UseScrollToHash();
 
   return (
     <div id="faq" className={styles.frequently_asked_question}>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { LogoImg } from "@icons/LogoImg.js";
-import styles from "./footer.module.scss";
+import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   return (

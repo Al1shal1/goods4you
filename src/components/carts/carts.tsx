@@ -1,4 +1,4 @@
-import styles from "./carts.module.scss";
+import styles from "./Carts.module.scss";
 import boots_white from "@icons/boots_white.png";
 import { CountBtn } from "@ui-kit/count-btn";
 import { Link } from "react-router-dom";

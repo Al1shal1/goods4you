@@ -1,4 +1,4 @@
-import styles from "./total.module.scss";
+import styles from "./Total.module.scss";
 
 export const Total = () => {
   return (

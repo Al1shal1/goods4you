@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export const useScrollToHash = () => {
+export const UseScrollToHash = () => {
   const location = useLocation();
 
   useEffect(() => {

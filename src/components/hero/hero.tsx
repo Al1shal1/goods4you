@@ -1,5 +1,5 @@
 import { RedButton } from "@ui-kit/red-button";
-import styles from "./hero.module.scss";
+import styles from "./Hero.module.scss";
 import { UseScrollToSection } from "@hooks/UseScrollToSection";
 
 export const Hero = () => {

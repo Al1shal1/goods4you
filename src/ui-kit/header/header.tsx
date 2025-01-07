@@ -1,6 +1,6 @@
 import { LogoImg } from "@icons/LogoImg.js";
 import { Cart } from "@icons/Cart.js";
-import styles from "./header.module.scss";
+import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 
 export const Headers = () => {
