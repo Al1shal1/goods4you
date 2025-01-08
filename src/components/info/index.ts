@@ -1,1 +1,1 @@
-export { Info } from "./_Info";
+export { Info } from "./Info";

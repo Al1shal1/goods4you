@@ -1,1 +1,1 @@
-export { Catalog } from "./_Catalog";
+export { Catalog } from "./Catalog";

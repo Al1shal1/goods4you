@@ -1,1 +1,1 @@
-export { Footer } from "./_Footer";
+export { Footer } from "./Footer";

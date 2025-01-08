@@ -1,1 +1,1 @@
-export { Hero } from "./_Hero";
+export { Hero } from "./Hero";
