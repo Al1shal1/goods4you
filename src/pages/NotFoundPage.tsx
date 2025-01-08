@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import { Footer } from "@ui-kit/footer";
 import { Headers } from "@ui-kit/header";
 import { RedButton } from "@ui-kit/red-button";
-import { UseScrollToSection } from "@hooks/UseScrollToSection";
+import { useScrollToSection } from "@hooks/useScrollToSection";
 
 export const NotFoundPage = () => {
-  const { handleScrollToSection } = UseScrollToSection();
+  const { handleScrollToSection } = useScrollToSection();
 
   const handleBtnClick = () => {
     handleScrollToSection("/");

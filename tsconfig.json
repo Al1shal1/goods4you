@@ -36,7 +36,8 @@
       "@ui-kit/*": [
         "ui-kit/*"
       ]
-    }
+    },
+  "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src", "src/types"

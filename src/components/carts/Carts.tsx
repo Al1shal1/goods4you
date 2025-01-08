@@ -4,14 +4,14 @@ import { CountBtn } from "@ui-kit/count-btn";
 import { Link } from "react-router-dom";
 import { RedButton } from "@ui-kit/red-button";
 import basket from "@icons/basket.svg";
-import { UseToggleState } from "@hooks/UseToggleState";
+import { useToggleState } from "@hooks/useToggleState";
 
 export const Carts = () => {
   const {
     state: isDelete,
     setTrue: handleDelete,
     setFalse: handleAddToCart,
-  } = UseToggleState();
+  } = useToggleState();
 
   return (
     <div className={styles.cart}>

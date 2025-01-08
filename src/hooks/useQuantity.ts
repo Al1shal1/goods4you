@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const UseQuantity = (onResetToCart: () => void) => {
+export const useQuantity = (onResetToCart: () => void) => {
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {

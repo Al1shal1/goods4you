@@ -2,14 +2,14 @@ import { Star } from "@icons/star";
 import { RedButton } from "@ui-kit/red-button";
 import styles from "./Info.module.scss";
 import { CountBtn } from "@ui-kit/count-btn";
-import { UseToggleState } from "@hooks/UseToggleState";
+import { useToggleState } from "@hooks/useToggleState";
 
 export const Info = () => {
   const {
     state: addToCart,
     setTrue: handleAddToCart,
     setFalse: handleResetToCart,
-  } = UseToggleState();
+  } = useToggleState();
 
   return (
     <div className={styles.info}>

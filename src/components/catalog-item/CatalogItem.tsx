@@ -2,10 +2,10 @@ import styles from "./CatalogItem.module.scss";
 import boots from "@icons/boots.png";
 import basket from "@icons/basket.svg";
 import { Link } from "react-router-dom";
-import { UseScrollToHash } from "@hooks/UseScrollToHash";
+import { useScrollToHash } from "@hooks/useScrollToHash";
 import { CountBtn } from "@ui-kit/count-btn";
 import { RedButton } from "@ui-kit/red-button";
-import { UseToggleState } from "@hooks/UseToggleState";
+import { useToggleState } from "@hooks/useToggleState";
 
 interface CatalogItemProps {
   id: string;
@@ -16,12 +16,12 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({
   id = "1",
   to = "/product/1",
 }) => {
-  UseScrollToHash();
+  useScrollToHash();
   const {
     state: isBtnClicked,
     setTrue: handleClick,
     setFalse: handleResetToCart,
-  } = UseToggleState();
+  } = useToggleState();
 
   return (
     <div id={id} className={styles.catalog__item}>

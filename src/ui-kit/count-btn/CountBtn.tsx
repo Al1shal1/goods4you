@@ -1,7 +1,7 @@
+import { useQuantity } from "@hooks/useQuantity";
 import styles from "./CountBtn.module.scss";
 import minus from "@icons/minus.svg";
 import plus from "@icons/plus.svg";
-import { UseQuantity } from "@hooks/UseQuantity";
 
 interface CountBtnProps {
   onResetToCart: () => void;
@@ -9,7 +9,7 @@ interface CountBtnProps {
 
 export const CountBtn: React.FC<CountBtnProps> = ({ onResetToCart }) => {
   const { quantity, increaseQuantity, decreaseQuantity } =
-    UseQuantity(onResetToCart);
+  useQuantity(onResetToCart);
 
   return (
     <div className={styles.controls}>
