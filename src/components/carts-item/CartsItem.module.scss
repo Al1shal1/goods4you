@@ -1,0 +1,72 @@
+.cart__form_item {
+    display: flex;
+    padding: 12px 25px 12px 12px;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.5s;
+
+    &:hover {
+        border-radius: 4px;
+        background: #F6F6F6;
+    }
+}
+
+.cart__form_left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart__form_img {
+    max-width: 100px;
+}
+
+.cart__form_about_title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.cart__form_about_price {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.cart__form_delete {
+    color: #B2B5BB;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    transition: 0.3s;
+
+    cursor: pointer;
+
+    &:hover {
+        color: #444B58;
+        text-decoration: underline;
+
+    }
+}
+
+
+@media (max-width: 768px) {
+    .cart__form_item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 550px) {
+    .cart__form_left {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
