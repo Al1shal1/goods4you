@@ -42,7 +42,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({
         </div>
         {!isBtnClicked ? (
           <div className={styles.catalog__basket_btn} onClick={handleClick}>
-            <RedButton imageSrc={basket} padding="16px" />
+            <RedButton imageSrc={basket} size="small" />
           </div>
         ) : (
           <CountBtn onResetToCart={handleResetToCart} />

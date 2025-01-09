@@ -19,7 +19,7 @@ export const NotFoundPage = () => {
           404 - Страница не найдена
         </h1>
         <Link to="/">
-          <RedButton text="Перейти на главную" onClick={handleBtnClick} />
+          <RedButton text="Перейти на главную" onClick={handleBtnClick} size="big"/>
         </Link>
       </div>
       <Footer />

@@ -65,7 +65,7 @@ export const Info = () => {
         </div>
         {!addToCart ? (
           <button onClick={handleAddToCart}>
-            <RedButton text="Add to cart" />
+            <RedButton text="Add to cart" size="big"/>
           </button>
         ) : (
           <CountBtn onResetToCart={handleResetToCart} />

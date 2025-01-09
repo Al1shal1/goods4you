@@ -1,25 +1,25 @@
+import cn from "classnames";
 import styles from "./RedButton.module.scss";
 
 interface BtnProps {
   text?: string;
+  className?: string;
   imageSrc?: string;
-  padding?: string;
+  size?: "big" | "small";
   onClick?: () => void;
 }
 
 export const RedButton: React.FC<BtnProps> = ({
   text,
   imageSrc,
-  padding = "20px 50px",
+  className,
+  size = "big",
   onClick,
 }) => {
-  const BtnStyle = {
-    padding: padding,
-  };
 
   return (
     <>
-      <button className={styles.red_btn} style={BtnStyle} onClick={onClick}>
+      <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick}>
         {imageSrc && <img src={imageSrc} alt="button icon" />}
         {text}
       </button>

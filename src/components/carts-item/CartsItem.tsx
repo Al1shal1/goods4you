@@ -39,7 +39,7 @@ export const CartsItem = () => {
                 </>
             ) : (
                 <button onClick={handleAddToCart}>
-                    <RedButton imageSrc={basket} padding="16px" />
+                    <RedButton imageSrc={basket} size="small" />
                 </button>
             )}
         </div>

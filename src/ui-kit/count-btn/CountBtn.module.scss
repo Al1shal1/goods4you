@@ -20,8 +20,7 @@
 }
 
 .controls_btn {
-    @extend .red_btn;
-    padding: 16px;
+    @extend .red_btn, .small;
 }
 
 @media (max-width: 550px) {

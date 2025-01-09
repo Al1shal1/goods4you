@@ -21,7 +21,7 @@ export const Hero = () => {
             at low prices
           </h3>
         </div>
-        <RedButton text="Go to shopping" onClick={handleBtnClick} />
+        <RedButton text="Go to shopping" onClick={handleBtnClick} size="big" />
       </div>
     </div>
   );

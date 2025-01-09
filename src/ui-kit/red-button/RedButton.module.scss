@@ -15,5 +15,11 @@
     &:disabled{
         background: #F8AFAF;
     }
+    &.small{
+        padding: 16px;
+    }
+    &.big{
+        padding:20px 50px;
+    }
     
 }

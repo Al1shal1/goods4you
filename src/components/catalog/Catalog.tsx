@@ -24,7 +24,7 @@ export const Catalog = () => {
           <CatalogItem id="12" to="/product/12" />
         </ul>
         <div className={styles.catalog__show_btn}>
-          <RedButton text="Show more" />
+          <RedButton text="Show more" size="big" />
         </div>
       </div>
     </main>
