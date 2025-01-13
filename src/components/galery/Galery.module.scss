@@ -1,0 +1,33 @@
+.galery {
+    display: flex;
+    flex-direction: column;
+
+    &__main_image {
+        max-height: 520px;
+        max-width: 520px;
+        border-radius: 4px;
+    }
+
+    &__scroll_list {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    &__scroll_item {
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__scroll_image {
+        max-width: 70px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            border: 3px solid #C4C4C4;
+        }
+    }
+}
