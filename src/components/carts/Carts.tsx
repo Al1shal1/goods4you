@@ -1,4 +1,4 @@
-import { CartsItem } from "@components/carts-item";
+import { CartsItem } from "./carts-item";
 import styles from "./Carts.module.scss";
 
 export const Carts = () => {

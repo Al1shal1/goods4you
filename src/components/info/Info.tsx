@@ -1,8 +1,8 @@
-import { Star } from "@icons/star";
 import { RedButton } from "@ui-kit/red-button";
 import styles from "./Info.module.scss";
 import { CountBtn } from "@ui-kit/count-btn";
 import { useToggleState } from "@hooks/useToggleState";
+import ReactStars from "react-rating-stars-component"
 
 export const Info = () => {
   const {
@@ -15,23 +15,15 @@ export const Info = () => {
     <div className={styles.info}>
       <div className={styles.info__title}>Essence Mascara Lash Princess</div>
       <div className={styles.info__rating}>
-        <ul className={styles.info__rating_list}>
-          <li className={styles.info__rating_item}>
-            <Star />
-          </li>
-          <li className={styles.info__rating_item}>
-            <Star />
-          </li>
-          <li className={styles.info__rating_item}>
-            <Star />
-          </li>
-          <li className={styles.info__rating_item}>
-            <Star />
-          </li>
-          <li className={styles.info__rating_item}>
-            <Star fill="#D5D5D5" />
-          </li>
-        </ul>
+        <ReactStars
+        classNames={styles.info__rating_item}
+          count={5}
+          value={4}
+          size={24}
+          activeColor={"#F14F4F"}
+          color={"#D5D5D5"}
+          edit={true}
+        />
         <div className={styles.info_category}>
           <p className={styles.info_category_text}>
             electronics, selfie accessories
@@ -65,7 +57,7 @@ export const Info = () => {
         </div>
         {!addToCart ? (
           <button onClick={handleAddToCart}>
-            <RedButton text="Add to cart" size="big"/>
+            <RedButton text="Add to cart" size="big" />
           </button>
         ) : (
           <CountBtn onResetToCart={handleResetToCart} />

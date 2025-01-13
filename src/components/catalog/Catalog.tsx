@@ -1,13 +1,13 @@
-import { CatalogItem } from "@components/catalog-item";
 import styles from "./Catalog.module.scss";
 import { RedButton } from "@ui-kit/red-button";
 import { Input } from "@ui-kit/input";
+import { CatalogItem } from "./catalog-item";
 
 export const Catalog = () => {
   return (
-    <main id="catalog" className={styles.catalog}>
+    <div id="catalog" className={styles.catalog}>
       <div className="container">
-        <h2 className={styles.catalog__title}>Catalog</h2>
+        <h2 className="title">Catalog</h2>
         <Input />
         <ul className={styles.catalog__list}>
           <CatalogItem id="1" to="/product/1" />
@@ -27,6 +27,6 @@ export const Catalog = () => {
           <RedButton text="Show more" size="big" />
         </div>
       </div>
-    </main>
+    </div>
   );
 };

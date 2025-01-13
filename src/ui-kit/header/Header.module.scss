@@ -2,54 +2,53 @@
     background-color: #484283;
     color: #fff;
 
-}
-
-.header__content {
-    display: flex;
-    justify-content: space-between;
-    padding: 23px 0 23px;
-}
-
-
-.header__navigation {
-    display: flex;
-    font-size: 14px;
-    align-items: center;
-    font-weight: 600;
-    line-height: 20px;
-}
-
-.header__navigation_item {
-    margin-right: 40px;
-    display: flex;
-    align-items: center;
-    &:last-child {
-        margin-right: 0;
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        padding: 23px 0 23px;
     }
 
-    &:hover{
-        color: #C4C4C4;
-        text-decoration: underline;
+    &__navigation {
+        display: flex;
+        font-size: 14px;
+        align-items: center;
+        font-weight: 600;
+        line-height: 20px;
+
+        &_item {
+            margin-right: 40px;
+            display: flex;
+            align-items: center;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                color: #C4C4C4;
+                text-decoration: underline;
+            }
+        }
+
+        &_busket {
+            margin-right: 6px;
+        }
+
+    }
+
+    &__busket_img {
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    &__logo_img {
+        min-height: 44px;
+        min-width: 164px;
     }
 }
-
-.header__logo_img{
-min-height: 44px;
-min-width: 164px;
-}
-
-.header__navigation_busket {
-    margin-right: 6px;
-}
-
-.header__busket_img{
-    min-width: 20px;
-    min-height: 20px;
-}
-
 
 @media (max-width: 550px) {
-    .header__content{
+    .header__content {
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -59,10 +58,10 @@ min-width: 164px;
 
 
 @media (max-width: 320px) {
-    .header__navigation{
+    .header__navigation {
         justify-content: center;
         flex-direction: column;
         gap: 7px;
-    align-items: flex-start;
+        align-items: flex-start;
     }
 }

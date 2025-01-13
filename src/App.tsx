@@ -1,17 +1,20 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Product } from "./pages/Product";
-import "./styles.scss";
-import { Cart } from "./pages/Cart";
+import Layout from "@hooks/Layout";
+import { HomePage } from "./pages/HomePage";
+import { ProductPage } from "./pages/ProductPage";
+import { CartPage } from "./pages/CartPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import "./styles.scss";
 
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/product/:id" element={<Product />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
     </Routes>
   );
 };

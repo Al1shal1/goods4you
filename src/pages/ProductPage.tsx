@@ -1,10 +1,8 @@
 import { Galery } from "@components/galery";
 import { Info } from "@components/info";
 import { Helmet } from "react-helmet";
-import { Footer } from "@ui-kit/footer";
-import { Headers } from "@ui-kit/header";
 
-export const Product = () => {
+export const ProductPage = () => {
   return (
     <>
       <Helmet>
@@ -14,16 +12,12 @@ export const Product = () => {
           content="“Any products from famous brands with worldwide delivery”"
         />
       </Helmet>
-      <div className="page">
-        <Headers />
         <div className="container">
           <div className="products">
             <Galery />
             <Info />
           </div>
         </div>
-        <Footer />
-      </div>
     </>
   );
 };

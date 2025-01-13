@@ -1,7 +1,6 @@
 .info{
     display: flex;
     flex-direction: column;
-    margin: 48px 0 48px;
     max-width: 620px;
 }
 .info__title{
@@ -12,18 +11,14 @@
 .info__rating{
     display: flex;
     justify-content: space-between;
-    margin-top: 16px;
-}
-.info__rating_list{
-    display: flex;
-}
-.info__rating_item{
-    cursor: pointer;
-    margin-right: 8px;
-    &:last-child{
-        margin-right: 0;
+    margin-top: 9px;
+    align-items: center;
+    &_item{
+        display: flex;
+        gap: 5px;
     }
 }
+
 .info_category_text{
     color: #646464;
     font-size: 16px;
@@ -34,7 +29,7 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 24px; 
-    margin-top: 24px;
+    margin-top: 20px;
     padding: 12px 0;
     border-top: 1px solid #C4C4C4;
     border-bottom: 1px solid #C4C4C4;
@@ -65,55 +60,50 @@
     background: rgba(0, 0, 0, 0.04);
     justify-content: space-between;
     margin-top: 24px;
-}
-
-.info__buy_info{
-    display: flex;
-    align-items: center;
-}
-.info__buy_prices{
-    display: flex;
-    flex-direction: column;
-    padding: 0 24px 0 20px;
-}
-.info__buy_price{
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 40px;
-}
-.info__buy_discount{
-    color: #646464;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    text-decoration: line-through;
-
-
-}
-.info__buy_texts{
-    display: flex;
-    border-left: 1px solid #D5D5D5;
-    padding: 0 20px 0 24px;
-    align-items: center;
-    gap:8px;
-}
-.info__buy_text{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-}
-.info__buy_percent{
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
+    &_info{
+        display: flex;
+        align-items: center;
+    }
+    &_prices{
+        display: flex;
+        flex-direction: column;
+        padding: 0 24px 0 20px;
+    }
+    &_price{
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 40px;
+    }
+    &_discount{
+        color: #646464;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: line-through;
+    }
+    &_texts{
+        display: flex;
+        border-left: 1px solid #D5D5D5;
+        padding: 0 20px 0 24px;
+        align-items: center;
+        gap:8px;
+    }
+    &_text{
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+    &_percent{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+    }
 }
 
 @media (max-width: 1280px) {
     .info__title{
         text-align: center;
     }
-    
-    
 }
 
 @media (max-width: 550px) {
@@ -131,6 +121,7 @@
     .info__rating{
         flex-direction: column;
         gap: 10px;
+        align-items: flex-start;
     }
 }
 

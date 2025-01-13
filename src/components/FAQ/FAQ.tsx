@@ -8,7 +8,7 @@ export const FAQ = () => {
     <div id="faq" className={styles.frequently_asked_question}>
       <div className={styles.faq__container}>
         <div className={styles.faq__content}>
-          <h2 className={styles.faq__title}>FAQ</h2>
+          <h2 className={`title ${styles.faq__title}`}>FAQ</h2>
           <div className={styles.faq__accordion}>
             <details className={styles.faq__accordion_item}>
               <summary className={styles.faq__accordion_question}>
