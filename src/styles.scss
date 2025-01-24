@@ -101,6 +101,10 @@ button {
     font-size: 36px;
     font-weight: 700;
     line-height: 56px;
+    &_informational{
+        margin-top: 40px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 1280px) {

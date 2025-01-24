@@ -16,9 +16,12 @@
 .catalog__image {
     border-radius: 4px;
     transition: opacity 0.5s ease;
+    max-width: 370px;
+
     &:hover {
         opacity: 0.5;
     }
+
     &_text {
         position: absolute;
         top: 50%;
@@ -31,6 +34,7 @@
         transition: opacity 0.5s ease;
         text-align: center;
     }
+
     &_overlay {
         position: absolute;
         top: 0;
@@ -46,8 +50,14 @@
     margin: 10px 0 6px;
     display: flex;
     justify-content: space-between;
-    &_left{
-        max-width: 70%;
+
+    &_left {
+        width: 70%;
+        transition: width 0.3s ease;
+
+        &_active {
+            width: 49%;
+        }
     }
 }
 
@@ -59,7 +69,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    &:hover{
+
+    &:hover {
         text-decoration: underline;
     }
 }
@@ -71,7 +82,7 @@
     line-height: 24px;
 }
 
-.catalog__basket_btn{
+.catalog__basket_btn {
     min-height: 50px;
 }
 
@@ -79,26 +90,28 @@
 
 
 @media (max-width: 768px) {
-    .catalog__content{
+    .catalog__content {
         width: 370px;
     }
 }
 
 @media (max-width: 550px) {
-    .catalog__item{
+    .catalog__item {
         width: 320px;
     }
-    .catalog__content{
+
+    .catalog__content {
         width: 320px;
     }
 }
 
 @media (max-width: 320px) {
-    .catalog__content{
+    .catalog__content {
         width: 270px;
     }
-    .catalog__item{
+
+    .catalog__item {
         width: 270px;
     }
-    
+
 }

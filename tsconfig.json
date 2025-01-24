@@ -40,7 +40,7 @@
   "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src", "src/types"
+    "src", "src/types", "vite-env.d.ts"
   ],
   "references": [
     {

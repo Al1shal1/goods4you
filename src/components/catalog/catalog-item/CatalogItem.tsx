@@ -1,44 +1,65 @@
 import styles from "./CatalogItem.module.scss";
-import boots from "@icons/boots.png";
 import basket from "@icons/basket.svg";
 import { Link } from "react-router-dom";
 import { useScrollToHash } from "@hooks/useScrollToHash";
 import { CountBtn } from "@ui-kit/count-btn";
 import { RedButton } from "@ui-kit/red-button";
 import { useToggleState } from "@hooks/useToggleState";
+import { IProduct } from "models/Product";
+import { useMemo } from "react";
 
 interface CatalogItemProps {
-  id: string;
+  id: number;
   to: string;
+  content: IProduct;
 }
 
 export const CatalogItem: React.FC<CatalogItemProps> = ({
-  id = "1",
   to = "/product/1",
+  content
 }) => {
+
   useScrollToHash();
+
   const {
     state: isBtnClicked,
     setTrue: handleClick,
     setFalse: handleResetToCart,
   } = useToggleState();
 
+  const discount = useMemo(() => {
+    return +((content.price * content.discountPercentage) / 100).toFixed(1);
+  }, [content.price, content.discountPercentage]);
+
+  const finalPrice = useMemo(() => {
+    return (content.price - discount).toFixed(1);
+  }, [content.price, discount]);
+
+  const renderImage = () => {
+    if (!content.thumbnail) {
+      return <div className={styles.catalog__image}>No Image</div>;
+    }
+    return <img src={content.thumbnail} alt={content.title} className={styles.catalog__image} />;
+  };
+
+  const contentLeftClass = isBtnClicked
+    ? `${styles.catalog__content_left} ${styles.catalog__content_left_active}`
+    : styles.catalog__content_left;
+
+
   return (
-    <div id={id} className={styles.catalog__item}>
+    <div className={styles.catalog__item}>
       <Link to={to} className={styles.catalog__link}>
-        <img src={boots} alt="boots" className={styles.catalog__image} />
+        {renderImage()}
         <div className={styles.catalog__image_text}>Show details</div>
         <div className={styles.catalog__image_overlay} />
       </Link>
       <div className={styles.catalog__content}>
-        <div
-          className={styles.catalog__content_left}
-          style={{ maxWidth: !isBtnClicked ? "70%" : "49%" }}
-        >
+        <div className={contentLeftClass}>
           <h5 className={styles.catalog__name}>
-            Essence Mascara Lash Princess
+            {content.title}
           </h5>
-          <div className={styles.catalog__price}>$110</div>
+          <div className={styles.catalog__price}>${finalPrice}</div>
         </div>
         {!isBtnClicked ? (
           <div className={styles.catalog__basket_btn} onClick={handleClick}>
