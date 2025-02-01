@@ -6,7 +6,7 @@ import { CountBtn } from "@ui-kit/count-btn";
 import { RedButton } from "@ui-kit/red-button";
 import { useToggleState } from "@hooks/useToggleState";
 import { IProduct } from "models/Product";
-import { useMemo } from "react";
+import { usePriceCalculation } from "@hooks/usePriceCalculation";
 
 interface CatalogItemProps {
   id: number;
@@ -20,6 +20,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({
 }) => {
 
   useScrollToHash();
+  const { finalPrice } = usePriceCalculation(content.price, content.discountPercentage);
 
   const {
     state: isBtnClicked,
@@ -27,13 +28,6 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({
     setFalse: handleResetToCart,
   } = useToggleState();
 
-  const discount = useMemo(() => {
-    return +((content.price * content.discountPercentage) / 100).toFixed(1);
-  }, [content.price, content.discountPercentage]);
-
-  const finalPrice = useMemo(() => {
-    return (content.price - discount).toFixed(1);
-  }, [content.price, discount]);
 
   const renderImage = () => {
     if (!content.thumbnail) {

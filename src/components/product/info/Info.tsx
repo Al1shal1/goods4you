@@ -2,21 +2,31 @@ import { RedButton } from "@ui-kit/red-button";
 import styles from "./Info.module.scss";
 import { CountBtn } from "@ui-kit/count-btn";
 import { useToggleState } from "@hooks/useToggleState";
-import ReactStars from "react-rating-stars-component"
+import ReactStars from "react-rating-stars-component";
+import { IProduct } from "../../../models/Product";
+import { usePriceCalculation } from "@hooks/usePriceCalculation";
 
-export const Info = () => {
+interface InfoProps {
+  content: IProduct;
+}
+
+export const Info: React.FC<InfoProps> = ({ content }) => {
   const {
     state: addToCart,
     setTrue: handleAddToCart,
     setFalse: handleResetToCart,
   } = useToggleState();
 
+  const { formattedPrice } = usePriceCalculation(content.price, content.discountPercentage);
+
+  const tagsText = Array.isArray(content?.tags) ? content?.tags.join(', ') : content?.tags;
+
   return (
     <div className={styles.info}>
-      <div className={styles.info__title}>Essence Mascara Lash Princess</div>
+      <div className={styles.info__title}>{content?.title}</div>
       <div className={styles.info__rating}>
         <ReactStars
-        classNames={styles.info__rating_item}
+          classNames={styles.info__rating_item}
           count={5}
           value={4}
           size={24}
@@ -26,33 +36,31 @@ export const Info = () => {
         />
         <div className={styles.info_category}>
           <p className={styles.info_category_text}>
-            electronics, selfie accessories
+            {tagsText}
           </p>
         </div>
       </div>
-      <div className={styles.info__stock}>In Stock - Only 5 left!</div>
+      <div className={styles.info__stock}>In Stock - Only {content?.stock} left!</div>
       <div className={styles.info__description}>
-        The Essence Mascara Lash Princess is a popular mascara known for its
-        volumizing and lengthening effects. Achieve dramatic lashes with this
-        long-lasting and cruelty-free formula.
+        {content?.description}
       </div>
       <ul className={styles.info__other_list}>
         <li className={styles.info__other_item}>
-          <div className={styles.info__other_text}>1 month warranty</div>
+          <div className={styles.info__other_text}>{content?.warrantyInformation}</div>
         </li>
         <li className={styles.info__other_item}>
-          <div className={styles.info__other_text}>Ships in 1 month</div>
+          <div className={styles.info__other_text}>{content?.shippingInformation}</div>
         </li>
       </ul>
       <div className={styles.info__buy}>
         <div className={styles.info__buy_info}>
           <div className={styles.info__buy_prices}>
-            <div className={styles.info__buy_price}>$7.17</div>
-            <div className={styles.info__buy_discount}>$9.99</div>
+            <div className={styles.info__buy_price}>${formattedPrice}</div>
+            <div className={styles.info__buy_discount}>${content?.price}</div>
           </div>
           <div className={styles.info__buy_texts}>
             <div className={styles.info__buy_text}>Your discount:</div>
-            <div className={styles.info__buy_percent}>14.5%</div>
+            <div className={styles.info__buy_percent}>{content?.discountPercentage}%</div>
           </div>
         </div>
         {!addToCart ? (

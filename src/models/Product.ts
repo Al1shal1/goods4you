@@ -11,4 +11,5 @@ export interface IProduct {
     discountPercentage: number;
     images: string[];
     rating: number;
+    tags: string[];
   }

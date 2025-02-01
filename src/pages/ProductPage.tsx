@@ -1,6 +1,5 @@
-import { Galery } from "@components/galery";
-import { Info } from "@components/info";
 import { Helmet } from "react-helmet";
+import { ProductContent } from "@components/product/ProductContent";
 
 export const ProductPage = () => {
   return (
@@ -12,12 +11,7 @@ export const ProductPage = () => {
           content="“Any products from famous brands with worldwide delivery”"
         />
       </Helmet>
-        <div className="container">
-          <div className="products">
-            <Galery />
-            <Info />
-          </div>
-        </div>
+      <ProductContent />
     </>
   );
 };
