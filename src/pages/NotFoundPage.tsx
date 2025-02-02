@@ -13,7 +13,7 @@ export const NotFoundPage = () => {
   return (
     <>
       <Helmet>
-          <title>Catalog | Not Found</title>
+          <title>404 | Not Found</title>
           <meta
             name="description"
             content="“Any products from famous brands with worldwide delivery”"

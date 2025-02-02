@@ -21,6 +21,8 @@ export const Info: React.FC<InfoProps> = ({ content }) => {
 
   const tagsText = Array.isArray(content?.tags) ? content?.tags.join(', ') : content?.tags;
 
+  const rating = Math.round(content.rating)
+
   return (
     <div className={styles.info}>
       <div className={styles.info__title}>{content?.title}</div>
@@ -28,11 +30,11 @@ export const Info: React.FC<InfoProps> = ({ content }) => {
         <ReactStars
           classNames={styles.info__rating_item}
           count={5}
-          value={4}
+          value={rating}
           size={24}
           activeColor={"#F14F4F"}
           color={"#D5D5D5"}
-          edit={true}
+          edit={false}
         />
         <div className={styles.info_category}>
           <p className={styles.info_category_text}>

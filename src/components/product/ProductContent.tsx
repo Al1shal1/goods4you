@@ -2,6 +2,7 @@ import { useGetSingleProductQuery } from "../../api/productApi";
 import { Navigate, useParams } from "react-router-dom";
 import { Galery } from "./galery";
 import { Info } from "./info";
+import { Helmet } from "react-helmet";
 
 
 export const ProductContent = () => {
@@ -17,11 +18,20 @@ export const ProductContent = () => {
     }
 
     return (
-        <div className="container">
-            <div className="products">
-                <Galery content={content} />
-                <Info content={content} />
+        <>
+            <Helmet>
+                <title>{content.title} | Goods4you</title>
+                <meta
+                    name="description"
+                    content="“Any products from famous brands with worldwide delivery”"
+                />
+            </Helmet>
+            <div className="container">
+                <div className="products">
+                    <Galery content={content} />
+                    <Info content={content} />
+                </div>
             </div>
-        </div>
+        </>
     );
 } 
