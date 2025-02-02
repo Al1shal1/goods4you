@@ -1,0 +1,25 @@
+.input {
+    border: none;
+    margin-top: 48px;
+    border-radius: 4px;
+    background: #F6F6F6;
+    padding: 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #444B58;
+
+    &::placeholder {
+        color: #B2B5BB;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        font-style: normal;
+        font-family: "Jost";
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

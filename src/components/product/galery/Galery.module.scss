@@ -1,0 +1,38 @@
+.galery {
+    display: flex;
+    flex-direction: column;
+    &__main_image{
+        border-radius: 4px;
+        &_wrapper {
+            height: 520px;
+            width: 520px;
+        }
+    }
+    &__scroll_list {
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    &__scroll_item {
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__scroll_image {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            border: 3px solid #C4C4C4;
+        }
+        &.active{
+            border: 3px solid #C4C4C4;
+        }
+    }
+}
