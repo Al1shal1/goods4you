@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { Cart } from "@components/cart";
+import { Carts } from "@components/carts";
 
 export const CartPage = () => {
   return (
@@ -11,7 +11,7 @@ export const CartPage = () => {
           content="“Any products from famous brands with worldwide delivery”"
         />
       </Helmet>
-        <Cart />
+        <Carts />
     </>
   );
 };

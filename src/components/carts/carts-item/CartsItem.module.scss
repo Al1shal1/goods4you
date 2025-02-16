@@ -15,6 +15,15 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    max-width: 362px;
+    &_deleted{
+        opacity: 50%;
+    }
+}
+.cart__form_right {
+    display: flex;
+    align-items: center;
+    gap: 48px;
 }
 
 .cart__form_img {
@@ -55,6 +64,13 @@
     }
 }
 
+@media (max-width: 992px){
+    .cart__form_left{
+        max-width: 290px;
+    }
+}
+
+
 
 @media (max-width: 768px) {
     .cart__form_item {
@@ -68,5 +84,13 @@
     .cart__form_left {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 320px) {
+    .cart__form_right{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }

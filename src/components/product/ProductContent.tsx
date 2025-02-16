@@ -1,4 +1,4 @@
-import { useGetSingleProductQuery } from "../../api/productApi";
+import { useGetSingleProductQuery } from "@api/productApi";
 import { Navigate, useParams } from "react-router-dom";
 import { Galery } from "./galery";
 import { Info } from "./info";
@@ -6,13 +6,12 @@ import { Helmet } from "react-helmet";
 
 
 export const ProductContent = () => {
-    const { id } = useParams<string>();
-    const { data: content, error, isLoading } = useGetSingleProductQuery(`${id}`);
+    const { id } = useParams<{ id: string }>();
+    const { data: content, error, isLoading } = useGetSingleProductQuery(Number(id));
 
     if (isLoading) {
         return <h1 className="title_informational">Loading...</h1>;
     }
-
     if (error || !content) {
         return <Navigate to="*" />;
     }

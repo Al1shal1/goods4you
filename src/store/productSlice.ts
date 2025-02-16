@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IProduct } from "../models/Product";
+import { IProduct } from "@models/IProduct";
 
 interface ProductsData {
     products: IProduct[];
@@ -16,7 +16,7 @@ interface ProductState {
 const initialState: ProductState = {
     catalogData: {
         products: [],
-        skip:0,
+        skip: 0,
         total: 0,
     },
     isLoading: false,

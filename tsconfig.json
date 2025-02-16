@@ -35,7 +35,16 @@
       ],
       "@ui-kit/*": [
         "ui-kit/*"
-      ]
+      ],
+      "@api/*": [
+        "api/*"
+      ],
+      "@models/*": [
+        "models/*"
+      ],
+      "@store/*": [
+        "store/*"
+      ],
     },
   "forceConsistentCasingInFileNames": true
   },

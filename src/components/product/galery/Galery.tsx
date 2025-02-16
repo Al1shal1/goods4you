@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef } from "react";
 import styles from "./Galery.module.scss";
-import { IProduct } from "../../../models/Product";
+import { IProduct } from "@models/IProduct";
 
 interface GaleryProps {
   content: IProduct;
@@ -17,7 +17,7 @@ export const Galery: React.FC<GaleryProps> = ({ content }) => {
 
   const handleClick = useCallback((img: string) => {
     setStateImg(img);
-    setActiveImg(img); 
+    setActiveImg(img);
   }, []);
 
   return (
@@ -40,9 +40,8 @@ export const Galery: React.FC<GaleryProps> = ({ content }) => {
                 <img
                   ref={(el) => (imgRefs.current[index] = el)}
                   src={img}
-                  className={`${styles.galery__scroll_image} ${
-                    img === activeImg ? styles.active : ''
-                  }`}
+                  className={`${styles.galery__scroll_image} ${img === activeImg ? styles.active : ''
+                    }`}
                   alt="Thumbnail"
                   onClick={() => handleClick(img)}
                 />

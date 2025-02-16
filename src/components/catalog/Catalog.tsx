@@ -3,8 +3,8 @@ import { RedButton } from "@ui-kit/red-button";
 import { Input } from "@ui-kit/input";
 import { CatalogItem } from "./catalog-item";
 import { useCallback, useState } from "react";
-import { useGetCatalogQuery } from "../../api/catalogApi";
-import { IProduct } from "models/Product";
+import { useGetCatalogQuery } from "@api/catalogApi";
+import { IProduct } from "@models/IProduct";
 import { useDebounceCallback } from "usehooks-ts";
 
 export const Catalog = () => {
@@ -17,12 +17,12 @@ export const Catalog = () => {
   );
 
   const debouncedSearch = useDebounceCallback((value: string) => setSearch(value), 200);
-  
+
   const loadMoreProducts = useCallback(() => {
     setLimit((prevLimit) => prevLimit + 12);
   }, []);
-  
-  const canLoadMore = content?.products && content.products.length < content.total;
+
+  const showMore = content?.products && content.products.length < content.total;
 
   const renderLoading = () =>
     <h1 className="title_informational">
@@ -55,6 +55,13 @@ export const Catalog = () => {
     </div>
   );
 
+  const renderContent = () => {
+    if (isLoading) return renderLoading();
+    if (isFetching) return renderFetching();
+    if (error) return renderError();
+    if (!content || content.products.length === 0) return renderNoProducts();
+    return renderProducts();
+  };
 
   return (
     <div id="catalog" className={styles.catalog}>
@@ -63,15 +70,8 @@ export const Catalog = () => {
         <Input
           onChange={(e) => debouncedSearch(e.target.value)}
         />
-
-        {isLoading && renderLoading()}
-        {isFetching && !isLoading && renderFetching()}
-        {error && renderError()}
-        {content?.products.length === 0 && renderNoProducts()}
-
-        {content?.products && content.products.length > 0 && renderProducts()}
-
-        {canLoadMore && (
+        {renderContent()}
+        {showMore && (
           <div className={styles.catalog__show_btn}>
             <RedButton text="Show more" size="big" onClick={loadMoreProducts} />
           </div>

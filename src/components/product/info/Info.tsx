@@ -3,25 +3,54 @@ import styles from "./Info.module.scss";
 import { CountBtn } from "@ui-kit/count-btn";
 import { useToggleState } from "@hooks/useToggleState";
 import ReactStars from "react-rating-stars-component";
-import { IProduct } from "../../../models/Product";
+import { IProduct } from "@models/IProduct";
 import { usePriceCalculation } from "@hooks/usePriceCalculation";
+import { useAppDispatch, useAppSelector } from "@hooks/redux";
+import { addItemToCart, removeItemFromCart, selectCartItemById, updateItemQuantity } from "@store/userSlice";
+import { useEffect, useState } from "react";
 
 interface InfoProps {
   content: IProduct;
 }
 
 export const Info: React.FC<InfoProps> = ({ content }) => {
-  const {
-    state: addToCart,
-    setTrue: handleAddToCart,
-    setFalse: handleResetToCart,
-  } = useToggleState();
+  const { setFalse: handleResetToCart } = useToggleState();
 
   const { formattedPrice } = usePriceCalculation(content.price, content.discountPercentage);
 
   const tagsText = Array.isArray(content?.tags) ? content?.tags.join(', ') : content?.tags;
 
   const rating = Math.round(content.rating)
+
+  const dispatch = useAppDispatch();
+
+  const cartItem = useAppSelector((state) => selectCartItemById(state, content.id));
+  const quantityInCart = cartItem ? cartItem.quantity : 0;
+
+  const [quantity, setQuantity] = useState(quantityInCart);
+
+  const handleAddToCartClick = () => {
+    if (quantity === 0) {
+      dispatch(addItemToCart(content));
+      setQuantity(1);
+    }
+  };
+
+  const handleUpdateQuantity = (newQuantity: number) => {
+    if (newQuantity > 0) {
+      dispatch(updateItemQuantity({ id: content.id, quantity: newQuantity }));
+    } else {
+      dispatch(removeItemFromCart(content.id));
+    }
+    setQuantity(newQuantity);
+  };
+
+  useEffect(() => {
+    if (quantity === 0 && cartItem) {
+      handleResetToCart();
+    }
+  }, [quantity, cartItem, handleResetToCart]);
+
 
   return (
     <div className={styles.info}>
@@ -65,12 +94,17 @@ export const Info: React.FC<InfoProps> = ({ content }) => {
             <div className={styles.info__buy_percent}>{content?.discountPercentage}%</div>
           </div>
         </div>
-        {!addToCart ? (
-          <button onClick={handleAddToCart}>
+        {quantityInCart > 0 ? (
+          <CountBtn
+            quantity={quantity} 
+            maxQuantity={content?.stock}
+            onIncrease={() => handleUpdateQuantity(quantity + 1)} 
+            onDecrease={() => handleUpdateQuantity(quantity - 1)} 
+          />
+        ) : (
+          <button onClick={handleAddToCartClick}>
             <RedButton text="Add to cart" size="big" />
           </button>
-        ) : (
-          <CountBtn onResetToCart={handleResetToCart} />
         )}
       </div>
     </div>

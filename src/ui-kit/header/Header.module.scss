@@ -23,7 +23,9 @@
             &:last-child {
                 margin-right: 0;
             }
-
+            &:nth-child(3) {
+                position: relative;
+            }
             &:hover {
                 color: #C4C4C4;
                 text-decoration: underline;
@@ -35,10 +37,23 @@
         }
 
     }
-
-    &__busket_img {
+    &__busket{
         min-width: 20px;
         min-height: 20px;
+        &_counter{
+        width: 15px;
+        height: 15px;
+        background-color: #F14F4F;
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        right: -6px;
+        top: 12px;
+        padding-top: 4px;
+        text-align: center;
+        font-size: 9px;
+        line-height: 8px;
+        }
     }
 
     &__logo_img {
