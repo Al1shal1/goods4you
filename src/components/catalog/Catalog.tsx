@@ -57,7 +57,6 @@ export const Catalog = () => {
 
   const renderContent = () => {
     if (isLoading) return renderLoading();
-    if (isFetching) return renderFetching();
     if (error) return renderError();
     if (!content || content.products.length === 0) return renderNoProducts();
     return renderProducts();
@@ -71,6 +70,7 @@ export const Catalog = () => {
           onChange={(e) => debouncedSearch(e.target.value)}
         />
         {renderContent()}
+        {!isLoading && isFetching && renderFetching()}
         {showMore && (
           <div className={styles.catalog__show_btn}>
             <RedButton text="Show more" size="big" onClick={loadMoreProducts} />
