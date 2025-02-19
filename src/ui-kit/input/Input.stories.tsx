@@ -15,14 +15,12 @@ export default meta;
 
 type Story = StoryObj<typeof Input>;
 
-// 📌 Базовый инпут
 export const Simple: Story = {
     args: {
         placeholder: "Search by title",
     },
 };
 
-// 📌 Инпут с управляемым состоянием
 export const SimpleFilled: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);

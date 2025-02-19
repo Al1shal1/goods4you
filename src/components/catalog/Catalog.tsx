@@ -55,13 +55,6 @@ export const Catalog = () => {
     </div>
   );
 
-  const renderContent = () => {
-    if (isLoading) return renderLoading();
-    if (error) return renderError();
-    if (!content || content.products.length === 0) return renderNoProducts();
-    return renderProducts();
-  };
-
   return (
     <div id="catalog" className={styles.catalog}>
       <div className="container">
@@ -69,14 +62,17 @@ export const Catalog = () => {
         <Input
           onChange={(e) => debouncedSearch(e.target.value)}
         />
-        {renderContent()}
-        {!isLoading && isFetching && renderFetching()}
+        {isLoading && renderLoading()}
+        {error && renderError()}
+        {!isLoading && isFetching && content && renderFetching()}
+        {!isLoading && !error && content && (
+          content.products.length === 0 ? renderNoProducts() : renderProducts()
+        )}
         {showMore && (
           <div className={styles.catalog__show_btn}>
             <RedButton text="Show more" size="big" onClick={loadMoreProducts} />
           </div>
         )}
-
       </div>
     </div>
   );
