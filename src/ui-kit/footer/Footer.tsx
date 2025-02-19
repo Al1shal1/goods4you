@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className="container">
         <div className={styles.footer__content}>
-          <Link to="/" className={styles.footer__logo}>
+          <Link to="/" className={styles.footer__logo} aria-label="logo">
             <LogoImg />
           </Link>
           <ul className={styles.footer__navigation}>

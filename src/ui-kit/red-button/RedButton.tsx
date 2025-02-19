@@ -7,6 +7,7 @@ interface BtnProps {
   imageSrc?: string;
   size?: "big" | "small";
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const RedButton: React.FC<BtnProps> = ({
@@ -15,11 +16,12 @@ export const RedButton: React.FC<BtnProps> = ({
   className,
   size = "big",
   onClick,
+  disabled = false,
 }) => {
 
   return (
     <>
-      <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick}>
+      <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick} disabled={disabled}>
         {imageSrc && <img src={imageSrc} alt="button icon" />}
         {text}
       </button>
