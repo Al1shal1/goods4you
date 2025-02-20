@@ -1,5 +1,5 @@
 import { LogoImg } from "@icons/LogoImg.js";
-import cart  from "@icons/cart.svg";
+import cart from "@icons/cart.svg";
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
@@ -26,20 +26,20 @@ export const Header = () => {
             <li className={styles.header__navigation_item}>
               <Link to="/#faq">FAQ</Link>
             </li>
-                  <li className={styles.header__navigation_item}>
-                    <Link to="/cart"
-                      className={styles.header__navigation_busket}
-                      onClick={() => {
-                        dispatch(resetProducts());
-                      }}
-                      >
-                      Cart
-                    </Link>
-                      <img src={cart} className={styles.header__busket} alt="" role="presentation"/>
-                      {carts && carts.totalQuantity > 0 ? (
-                        <div className={styles.header__busket_counter}>{carts.totalQuantity}</div>
-                      ) : null}
-                  </li>
+            <li className={styles.header__navigation_item}>
+              <Link to="/cart"
+                className={styles.header__navigation_busket}
+                onClick={() => {
+                  dispatch(resetProducts());
+                }}
+              >
+                Cart
+              </Link>
+              <img src={cart} className={styles.header__busket} alt="" role="presentation" />
+              {carts && carts.totalQuantity > 0 ? (
+                <div className={styles.header__busket_counter}>{carts.totalQuantity}</div>
+              ) : null}
+            </li>
             <li className={styles.header__navigation_item}>
               <a href="/">Johnson Smith</a>
             </li>
