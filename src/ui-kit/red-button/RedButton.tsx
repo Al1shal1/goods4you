@@ -24,7 +24,12 @@ export const RedButton: React.FC<BtnProps> = ({
   return (
     <>
       {loading === true ? (
-        <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick} disabled={disabled}>
+        <button 
+        className={cn(className, styles.red_btn, styles[size])} 
+        onClick={onClick} 
+        disabled={disabled}
+        {...(loading && { "aria-label": "Loading" })}
+        >
           <div className={styles.loader} />
         </button>
       ) :

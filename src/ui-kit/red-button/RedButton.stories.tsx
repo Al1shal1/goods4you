@@ -41,3 +41,11 @@ export const WithIcon: Story = {
         size: "small",
     },
 };  
+
+export const Loading: Story = {
+    args: {
+        loading: true,
+        disabled: true,
+        size: "big",
+    },
+};
