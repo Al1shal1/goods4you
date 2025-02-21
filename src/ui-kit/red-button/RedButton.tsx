@@ -8,6 +8,7 @@ interface BtnProps {
   size?: "big" | "small";
   onClick?: () => void;
   disabled?: boolean;
+  loading?: boolean;
 }
 
 export const RedButton: React.FC<BtnProps> = ({
@@ -17,14 +18,22 @@ export const RedButton: React.FC<BtnProps> = ({
   size = "big",
   onClick,
   disabled = false,
+  loading
 }) => {
 
   return (
     <>
-      <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick} disabled={disabled}>
-        {imageSrc && <img src={imageSrc} alt="button icon" />}
-        {text}
-      </button>
+      {loading === true ? (
+        <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick} disabled={disabled}>
+          <div className={styles.loader} />
+        </button>
+      ) :
+        (
+          <button className={cn(className, styles.red_btn, styles[size])} onClick={onClick} disabled={disabled}>
+            {imageSrc && <img src={imageSrc} alt="button icon" />}
+            {text}
+          </button>
+        )}
     </>
   );
 };

@@ -70,7 +70,7 @@ export const Catalog = () => {
         )}
         {showMore && (
           <div className={styles.catalog__show_btn}>
-            <RedButton text="Show more" size="big" onClick={loadMoreProducts} />
+            <RedButton loading={isFetching} disabled={isFetching} text="Show more" size="big" onClick={loadMoreProducts} />
           </div>
         )}
       </div>
