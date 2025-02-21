@@ -1,0 +1,111 @@
+.hero {
+    height: 500px;
+    background-color: #484283;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    border-top: 1px solid #fff;
+    padding-top: 115px;
+
+    &::before {
+        content: "Goods4you";
+        color: #fff;
+        opacity: 12%;
+        position: absolute;
+        font-size: 200px;
+        font-weight: 700;
+        line-height: 300px;
+        top: 54%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    &_text {
+        font-family: 'Jost';
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 50px;
+        width: 550px;
+    }
+    &_subtitle {
+        margin: 30px 0 30px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        width: 350px;
+    }
+}
+
+
+@media (max-width: 1280px) {
+    .hero__content{
+        &::before{
+        font-size: 150px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .hero__content{
+        &::before{
+        font-size: 120px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__content{
+        &::before{
+        font-size: 90px;
+        }
+    }
+}
+@media (max-width: 550px) {
+    .hero{
+        height: 460px;
+    }
+    .hero__content{
+        padding-top: 90px;
+        &::before{
+            font-size: 60px;
+            top: 44%;
+            }
+            &_text{
+                font-size: 23px;
+                width: 315px;
+            }
+            &_subtitle{
+                width: 315px;
+            }
+    }
+    
+}
+
+
+@media (max-width: 320px) {
+    .hero__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero__content{
+        padding-top: 50px;
+        &::before{
+        font-size: 45px;
+        }
+        &_text{
+            width: 245px;
+            text-align: center;
+        }
+        &_subtitle{
+            width: 245px;
+            text-align: center;
+        }
+    }
+}

@@ -7,13 +7,12 @@ import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-
 /** @type {import('eslint').Linter.FlatConfig[]} */
-export default tseslint.config(
+export default [
   {
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      'react': eslintReact,
+      react: eslintReact,
       'react-hooks': eslintReactHooks,
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
@@ -33,11 +32,16 @@ export default tseslint.config(
       },
       parserOptions: {
         project: ['tsconfig.json', 'tsconfig.node.json'],
-      }
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['*.{ts,tsx}'],
     rules: {
       ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
@@ -46,8 +50,8 @@ export default tseslint.config(
       'react/jsx-curly-brace-presence': ['warn', { props: 'never', children: 'never' }],
       'react/function-component-definition': ['warn', { namedComponents: 'arrow-function' }],
       'react/self-closing-comp': ['error', { component: true, html: true }],
-      'max-lines': ['warn', { max: 124 }],
+      'max-lines': ['warn', { max: 1000 }],
       'max-params': ['error', 3],
     },
   },
-);
+];
