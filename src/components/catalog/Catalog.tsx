@@ -59,9 +59,11 @@ export const Catalog = () => {
     <div id="catalog" className={styles.catalog}>
       <div className="container">
         <h2 className="title">Catalog</h2>
-        <Input
-          onChange={(e) => debouncedSearch(e.target.value)}
-        />
+        <div className={styles.catalog__search}>
+          <Input
+            onChange={(e) => debouncedSearch(e.target.value)}
+          />
+        </div>
         {isLoading && renderLoading()}
         {error && renderError()}
         {!isLoading && isFetching && content && renderFetching()}
