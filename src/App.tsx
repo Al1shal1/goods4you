@@ -5,6 +5,7 @@ import { ProductPage } from "./pages/ProductPage";
 import { CartPage } from "./pages/CartPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import "./styles.scss";
+import { LoginPage } from "./pages/LoginPage";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 };
