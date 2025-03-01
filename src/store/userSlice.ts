@@ -6,37 +6,57 @@ import { IProduct } from "@models/IProduct";
 
 
 interface InitialState {
+    userId : number | null;
     carts: ICart | null;
+    removedProducts: IProduct[];
 }
 
 const initialState: InitialState = {
+    userId: localStorage.getItem("userId") ? Number(localStorage.getItem("userId")) : null,
     carts: null,
+    removedProducts: [],
 };
 
-const USER_ID = 11;
-export const selectUserId = () => USER_ID;
+export const selectUserId = (state: RootState) => state.user.userId;
 
-export const fetchUserCart = createAsyncThunk("user/fetchUserCart", async (_, { dispatch }) => {
-    const result = await dispatch(cartApi.endpoints.fetchCartsByUser.initiate(USER_ID)).unwrap();
-    return result.carts.length ? result.carts[0] : null;
-});
+export const fetchUserCart = createAsyncThunk(
+    "user/fetchUserCart",
+    async (_, { dispatch, getState }) => {
+        const state = getState() as RootState;
+        
+        const userId = state.user.userId;
+        if (!userId) return null;
+
+        const result = await dispatch(cartApi.endpoints.fetchCartsByUser.initiate(userId)).unwrap();
+
+        return result.carts.length ? result.carts[0] : null;
+    }
+);
 
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
+        setUserId: (state, action: PayloadAction<number | null>) => {
+            state.userId = action.payload;
+            state.carts = null; // Очищаем корзину при смене пользователя
+            state.removedProducts = [];
+        },
+
         addItemToCart(state, action: PayloadAction<IProduct>) {
             if (!state.carts) {
                 state.carts = {
-                    discountedTotal: 0,
+                    discountedTotal: action.payload.price - (action.payload.price * action.payload.discountPercentage) / 100,
                     totalProducts: 1,
                     totalQuantity: 1,
                     total: action.payload.price,
-                    userId: USER_ID,
+                    userId: state.userId!,
                     products: [{ ...action.payload, quantity: 1 }],
                 };
                 return;
             }
+
+            state.removedProducts = state.removedProducts.filter(item => item.id !== action.payload.id);
 
             const product = state.carts.products.find((item) => item.id === action.payload.id);
             if (product) {
@@ -45,15 +65,22 @@ const userSlice = createSlice({
                 state.carts.products.push({ ...action.payload, quantity: 1 });
             }
 
-            userSlice.caseReducers.recalculateCarts(state);
+            recalculateCarts(state);
         },
 
         removeItemFromCart(state, action: PayloadAction<number>) {
             if (!state.carts) return;
 
+            const product = state.carts.products.find((item) => item.id === action.payload);
+            if (!product) return;
+
+            state.removedProducts.push(product);
             state.carts.products = state.carts.products.filter((item) => item.id !== action.payload);
+
             if (!state.carts.products.length) state.carts = null;
-            else userSlice.caseReducers.recalculateCarts(state);
+            else {
+                recalculateCarts(state);
+            }
         },
 
         updateItemQuantity(state, action: PayloadAction<{ id: number; quantity: number }>) {
@@ -64,35 +91,42 @@ const userSlice = createSlice({
 
             product.quantity = action.payload.quantity;
             if (product.quantity <= 0) {
+                state.removedProducts.push(product);
                 state.carts.products = state.carts.products.filter((item) => item.id !== action.payload.id);
                 if (!state.carts.products.length) state.carts = null;
             }
 
-            userSlice.caseReducers.recalculateCarts(state);
-        },
-
-        recalculateCarts(state) {
-            if (!state.carts) return;
-
-            state.carts.totalProducts = state.carts.products.length;
-            state.carts.totalQuantity = state.carts.products.reduce((sum, item) => sum + item.quantity, 0);
-            state.carts.total = state.carts.products.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            recalculateCarts(state);
         },
     },
     extraReducers: (builder) => {
         builder
             .addCase(fetchUserCart.fulfilled, (state, action) => {
+                console.log("Fetched cart:", action.payload);
                 state.carts = action.payload;
             })
-            .addMatcher(cartApi.endpoints.fetchCartsByUser.matchFulfilled, (state, action) => {
-                state.carts = action.payload.carts.length ? action.payload.carts[0] : null;
-            });
     },
 });
 
-export const { addItemToCart, removeItemFromCart, updateItemQuantity } = userSlice.actions;
+function recalculateCarts(state: InitialState) {
+    if (!state.carts) return;
+
+    state.carts.totalProducts = state.carts.products.length;
+    state.carts.totalQuantity = state.carts.products.reduce((sum, item) => sum + item.quantity, 0);
+    state.carts.total = state.carts.products.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    state.carts.discountedTotal = state.carts.products.reduce(
+        (sum, item) => sum + (item.price - (item.price * item.discountPercentage) / 100) * item.quantity,
+        0
+    );
+}
+
+export const { setUserId, addItemToCart, removeItemFromCart, updateItemQuantity } = userSlice.actions;
+
+export const selectRemovedProducts = (state: RootState) => state.user.removedProducts;
 
 export const selectCartItemById = (state: RootState, productId: number) =>
     state.user.carts?.products.find((item) => item.id === productId) || null;
 
 export default userSlice.reducer;
+
+

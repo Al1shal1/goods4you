@@ -3,12 +3,18 @@ import { useFetchCartsByUserQuery } from "@api/cartApi";
 import { productApi } from "@api/productApi";
 import { useAppDispatch, useAppSelector } from "./redux";
 import { selectUserId } from "@store/userSlice";
+import { RootState } from "@store/index";
 
 export const useCartData = () => {
     const dispatch = useAppDispatch();
     const userId = useAppSelector(selectUserId);
-    const { data: cartData, isLoading: isCartLoading, error: cartError } = useFetchCartsByUserQuery(userId);
-    const cart = cartData?.carts?.[0];
+
+    const cart = useAppSelector((state) => state.user.carts);
+    const removedProducts = useAppSelector((state: RootState) => state.user.removedProducts);
+
+    const { isLoading: isCartLoading, error: cartError } = useFetchCartsByUserQuery(userId ?? 0, {
+        skip: !userId,
+    });
 
     const [productsStock, setProductsStock] = useState<{ [key: number]: number }>({});
 
@@ -50,8 +56,10 @@ export const useCartData = () => {
 
     return {
         cart,
+        removedProducts,
         productsStock,
         isLoading: isCartLoading,
         error: cartError,
     };
 };
+

@@ -61,6 +61,7 @@ export const Catalog = () => {
         <h2 className="title">Catalog</h2>
         <div className={styles.catalog__search}>
           <Input
+          type="text"
             onChange={(e) => debouncedSearch(e.target.value)}
           />
         </div>

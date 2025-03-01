@@ -1,14 +1,24 @@
 import { LogoImg } from "@icons/LogoImg.js";
 import cart from "@icons/cart.svg";
 import styles from "./Header.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { resetProducts } from "@store/productSlice";
+import { useGetCurrentUserQuery } from "@api/authApi";
 
 export const Header = () => {
 
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.user);
+
+  const { data: currentUser } = useGetCurrentUserQuery();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/login");
+  };
 
   return (
     <header className={styles.header}>
@@ -41,7 +51,9 @@ export const Header = () => {
               ) : null}
             </li>
             <li className={styles.header__navigation_item}>
-              <a href="/">Johnson Smith</a>
+              <button className={styles.header__navigation__user} onClick={handleLogout}>
+                {[currentUser?.firstName, currentUser?.lastName].filter(Boolean).join(" ")}
+              </button>
             </li>
           </ul>
         </div>

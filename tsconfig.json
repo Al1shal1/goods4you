@@ -49,7 +49,10 @@
   "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "src", "src/types", "vite-env.d.ts", ".storybook/**/*.ts"
+    "src",
+    "src/types",
+    "vite-env.d.ts",
+    ".storybook/**/*.ts",
   ],
   "references": [
     {

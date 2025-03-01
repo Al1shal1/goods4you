@@ -4,11 +4,10 @@ import cn from "classnames";
 import basket from "@icons/basket.svg";
 import { CountBtn } from "@ui-kit/count-btn";
 import { RedButton } from "@ui-kit/red-button";
-import { useToggleState } from "@hooks/useToggleState";
 import { IProduct } from "@models/IProduct";
 import { usePriceCalculation } from "@hooks/usePriceCalculation";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
-import { removeItemFromCart, addItemToCart, selectCartItemById, updateItemQuantity } from "@store/userSlice";
+import { removeItemFromCart, addItemToCart, selectCartItemById, selectRemovedProducts, updateItemQuantity } from "@store/userSlice";
 
 interface CartItemProps {
     content: IProduct;
@@ -18,14 +17,10 @@ interface CartItemProps {
 export const CartsItem: React.FC<CartItemProps> = ({ content, stock }) => {
     const dispatch = useAppDispatch();
 
-    const {
-        state: isDelete,
-        setTrue: markAsDeleted,
-        setFalse: markAsAdded,
-    } = useToggleState();
-
     const { finalPrice } = usePriceCalculation(content.price, content.discountPercentage);
     const cartItem = useAppSelector((state) => selectCartItemById(state, content.id));
+    const removedProducts = useAppSelector(selectRemovedProducts);
+    const isDeleted = removedProducts.some((item) => item.id === content.id);
     const quantityInCart = cartItem ? cartItem.quantity : 0;
 
     const handleUpdateQuantity = (newQuantity: number) => {
@@ -33,23 +28,24 @@ export const CartsItem: React.FC<CartItemProps> = ({ content, stock }) => {
             dispatch(updateItemQuantity({ id: content.id, quantity: newQuantity }));
         } else {
             dispatch(removeItemFromCart(content.id));
-            markAsDeleted();
         }
     };
 
     const handleReAddToCart = () => {
         dispatch(addItemToCart(content));
-        markAsAdded();
     };
 
     const handleRemove = () => {
         dispatch(removeItemFromCart(content.id));
-        markAsDeleted();
     };
 
     return (
         <div className={styles.cart__form_item}>
-            <Link to={`/product/${content.id}`} className={cn(styles.cart__form_left, { [styles.cart__form_left_deleted]: isDelete })}>
+            <Link to={`/product/${content.id}`}
+                className={cn(styles.cart__form_left, {
+                    [styles.cart__form_left_deleted]: isDeleted,
+                })}
+            >
                 <img
                     src={content.thumbnail}
                     alt="thumbnail"
@@ -60,7 +56,8 @@ export const CartsItem: React.FC<CartItemProps> = ({ content, stock }) => {
                     <div className={styles.cart__form_about_price}>${finalPrice}</div>
                 </div>
             </Link>
-            {!isDelete ? (
+
+            {!isDeleted ? ( 
                 <div className={styles.cart__form_right}>
                     <CountBtn
                         quantity={quantityInCart}
