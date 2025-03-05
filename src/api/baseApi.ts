@@ -14,5 +14,5 @@ export const baseApi = createApi({
         },
     }),
     endpoints: () => ({}),
-    reducerPath: "baseApi",
+    reducerPath: "baseApi"
 });

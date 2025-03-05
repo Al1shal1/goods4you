@@ -1,6 +1,6 @@
 import { Auth } from '@components/auth';
 import { HeaderLogin } from '@ui-kit/header/header-login/HeaderLogin';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 export const LoginPage = () => {
     return (

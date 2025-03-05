@@ -13,26 +13,18 @@ interface AuthContextProps {
 const AuthContext = createContext<AuthContextProps | null>(null);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-    const token = localStorage.getItem("token");
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
     const { data: user, isLoading, error } = useGetCurrentUserQuery(undefined, { skip: !token });
 
-    const dispatch = useAppDispatch();
-
     useEffect(() => {
-        const isUnauthorized = error && "status" in error && error.status === 401;
-
-        if (!token || isUnauthorized) {
-            if (isUnauthorized) {
-                alert("Your session has expired. Please log in again.");
-            }
+        if (!isLoading && error && "status" in error && error.status === 401) {
+            alert("Your session has expired. Please log in again.");
             localStorage.removeItem("token");
-            localStorage.removeItem("userId");
-
-            if (!user) navigate("/login");
+            navigate("/login");
         }
-    }, [token, error, user, navigate]);
-    
+    }, [isLoading, error, navigate]);
 
     useEffect(() => {
         if (user) {
@@ -43,8 +35,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <AuthContext.Provider value={{ user: user ?? null, isLoading }}>
-        {!isLoading && children}
-    </AuthContext.Provider>
+            {!isLoading && children}
+        </AuthContext.Provider>
     );
 };
 

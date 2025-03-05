@@ -1,19 +1,25 @@
 import { Input } from "@ui-kit/input";
 import styles from "./Auth.module.scss";
 import { RedButton } from "@ui-kit/red-button";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLoginUserMutation } from "@api/authApi";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@hooks/redux";
-import { fetchUserCart, setUserId } from "@store/userSlice";
+import { setUserId } from "@store/userSlice";
 
 export const Auth = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [loginUser, { isLoading, isSuccess, data }] = useLoginUserMutation();
-
+    const [loginUser, { isLoading }] = useLoginUserMutation();
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/");
+        }
+    }, [navigate]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -27,24 +33,14 @@ export const Auth = () => {
             }).unwrap();
 
             localStorage.setItem("token", userData.accessToken);
-            localStorage.setItem("userId", String(userData.id));
-
             dispatch(setUserId(userData.id));
-            dispatch(fetchUserCart());
-
+            navigate("/");
             console.log("Login successful:", userData);
         } catch (err) {
             alert("Invalid credentials. Please try again.");
             console.error("Login failed:", err);
         }
     };
-
-    useEffect(() => {
-        if (isSuccess && data) {
-            dispatch(setUserId(data.id));
-            navigate("/"); // Переход после авторизации
-        }
-    }, [isSuccess, navigate, data, dispatch]);
 
     return (
         <div className="container">

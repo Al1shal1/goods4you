@@ -10,19 +10,15 @@ export const Carts = () => {
   const renderContent = () => {
     if (isLoading) return <h1 className="title_informational">Loading...</h1>;
     if (error) return <h1 className="title_informational">Failed to load cart</h1>;
-    if (!cart) return <div className={styles.cart__title_informational}>No items</div>;
+    if (!cart?.products.length) return <div className={styles.cart__title_informational}>No items</div>;
 
     return (
       <div className={styles.carts__container}>
         <div className={styles.cart}>
           <div className={styles.cart__form}>
-          {cart.products.map((product: IProduct) => {
-              const productStock = productsStock[product.id] ?? 5;
-              return <CartsItem key={product.id} content={product} stock={productStock} />;
-            })}
-            {removedProducts.map((product: IProduct) => {
-              return <CartsItem key={product.id} content={product} stock={0} />;
-            })}
+          {[...cart.products, ...removedProducts].map((product: IProduct) => (
+                <CartsItem key={product.id} content={product} stock={productsStock[product.id] ?? 5} />
+              ))}
           </div>
         </div>
         <CartPrice cart={cart} />
