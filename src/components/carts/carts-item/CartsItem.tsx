@@ -43,8 +43,8 @@ export const CartsItem: React.FC<CartItemProps> = ({ content, stock }) => {
     };
 
     const handleUpdateQuantityInCart = (newQuantity: number) => {
-        if (newQuantity > stock) return;
-
+        if (newQuantity > quantity && newQuantity > stock) return;
+    
         if (newQuantity > 0) {
             dispatch(updateItemQuantity({ id: content.id, quantity: newQuantity }));
             setQuantity(newQuantity);

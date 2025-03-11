@@ -21,7 +21,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    
     "baseUrl": "src",
     "paths": {
       "@components/*": [
@@ -46,13 +45,15 @@
         "store/*"
       ],
     },
-  "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src",
     "src/types",
     "vite-env.d.ts",
     ".storybook/**/*.ts",
+    "vitest.config.ts",
+    "test",
   ],
   "references": [
     {

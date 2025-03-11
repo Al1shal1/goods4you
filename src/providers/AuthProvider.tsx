@@ -16,22 +16,30 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
-    const { data: user, isLoading, error } = useGetCurrentUserQuery(undefined, { skip: !token });
+    const shouldSkip = !token || token === "null";
+    const { data: user, isLoading, error } = useGetCurrentUserQuery(undefined, { skip: shouldSkip });
+
+    useEffect(() => {
+        if (user) {
+            const token = localStorage.getItem("token");
+            if (token) {
+                dispatch(setUserId(user.id));
+                dispatch(fetchUserCart());
+            }
+        }
+    }, [user, dispatch]);
 
     useEffect(() => {
         if (!isLoading && error && "status" in error && error.status === 401) {
             alert("Your session has expired. Please log in again.");
             localStorage.removeItem("token");
-            navigate("/login");
-        }
-    }, [isLoading, error, navigate]);
+            dispatch(setUserId(null));
 
-    useEffect(() => {
-        if (user) {
-            dispatch(setUserId(user.id));
-            dispatch(fetchUserCart());
+            if (window.location.pathname !== "/login") {
+                navigate("/login");
+            }
         }
-    }, [user, dispatch]);
+    }, [isLoading, error, navigate, dispatch]);
 
     return (
         <AuthContext.Provider value={{ user: user ?? null, isLoading }}>

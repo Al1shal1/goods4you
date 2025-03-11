@@ -16,7 +16,7 @@ interface InfoProps {
 export const Info: React.FC<InfoProps> = ({ content }) => {
   const dispatch = useAppDispatch();
   const { setFalse: handleResetToCart } = useToggleState();
-  const { formattedPrice } = usePriceCalculation(content.price, content.discountPercentage);
+  const { finalPrice } = usePriceCalculation(content.price, content.discountPercentage);
   const tagsText = useMemo(() => Array.isArray(content?.tags) ? content.tags.join(", ") : content?.tags, [content?.tags]);
   const rating = useMemo(() => Math.round(content.rating), [content.rating]);
 
@@ -81,7 +81,7 @@ export const Info: React.FC<InfoProps> = ({ content }) => {
       <div className={styles.info__buy}>
         <div className={styles.info__buy_info}>
           <div className={styles.info__buy_prices}>
-            <div className={styles.info__buy_price}>${formattedPrice}</div>
+            <div className={styles.info__buy_price}>${finalPrice}</div>
             <div className={styles.info__buy_discount}>${content.price}</div>
           </div>
           <div className={styles.info__buy_texts}>

@@ -23,12 +23,9 @@ export const fetchUserCart = createAsyncThunk(
     async (_, { dispatch, getState }) => {
         try {
             const state = getState() as RootState;
-        
             const userId = state.user.userId;
             if (!userId) return null;
-
             const result = await dispatch(cartApi.endpoints.fetchCartsByUser.initiate(userId)).unwrap();
-
             return result.carts.length ? result.carts[0] : null;
         } catch (error) {
             console.error("Error fetching user cart:", error);
@@ -93,16 +90,17 @@ const userSlice = createSlice({
 
         updateItemQuantity(state, action: PayloadAction<{ id: number; quantity: number }>) {
             if (!state.carts) return;
-            const prod = state.carts.products.find(item => item.id === action.payload.id);
-            if (!prod) return;
-            prod.quantity = action.payload.quantity;
-            if (prod.quantity <= 0) {
-                state.removedProducts.push(prod);
-                state.carts.products = state.carts.products.filter(item => item.id !== action.payload.id);
+            const index = state.carts.products.findIndex(item => item.id === action.payload.id);
+            if (index === -1) return;
+            if (action.payload.quantity <= 0) {
+                state.removedProducts.push({ ...state.carts.products[index] });
+                state.carts.products.splice(index, 1);
                 if (state.carts.products.length === 0) state.carts = null;
+            } else {
+                state.carts.products[index].quantity = action.payload.quantity;
+                recalculateCarts(state);
             }
-            recalculateCarts(state);
-        },
+        }
     },
     extraReducers: (builder) => {
         builder
