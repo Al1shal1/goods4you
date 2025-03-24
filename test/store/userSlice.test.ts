@@ -49,17 +49,20 @@ describe("userSlice", () => {
     it("должен удалить товар из корзины", () => {
         const product = createTestProduct();
         let newState = userReducer(initialState, addItemToCart(product));
+        expect(newState.carts).not.toBeNull();
         newState = userReducer(newState, removeItemFromCart(product.id));
 
         expect(newState.carts).toBeNull();
         expect(newState.removedProducts.length).toBe(1);
+        expect(newState.removedProducts[0].id).toBe(product.id);
     });
-
-    it("перемещает товар в removedProducts при отрицательном количестве", () => {
+    
+    it("перемещает товар в removedProducts при нулевом количестве", () => {
         const product = createTestProduct();
         let newState = userReducer(initialState, addItemToCart(product));
-        newState = userReducer(newState, updateItemQuantity({ id: product.id, quantity: -2 }));
-
+        expect(newState.carts).not.toBeNull();
+        newState = userReducer(newState, updateItemQuantity({ id: product.id, quantity: 0 }));
+    
         expect(newState.carts).toBeNull();
         expect(newState.removedProducts.length).toBe(1);
         expect(newState.removedProducts[0].id).toBe(product.id);

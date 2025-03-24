@@ -12,8 +12,8 @@ export const useCartData = () => {
     const cart = useAppSelector((state) => state.user.carts);
     const removedProducts = useAppSelector((state: RootState) => state.user.removedProducts);
 
-    const { isLoading: isCartLoading, error: cartError } = useFetchCartsByUserQuery(userId ?? 0, {
-        skip: !userId,
+    const { isLoading: isCartLoading, error: cartError } = useFetchCartsByUserQuery(userId, {
+        skip: userId === 0,
     });
 
     const [productsStock, setProductsStock] = useState<{ [key: number]: number }>({});
