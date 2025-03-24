@@ -2,7 +2,7 @@ import { useGetSingleProductQuery } from "@api/productApi";
 import { Navigate, useParams } from "react-router-dom";
 import { Galery } from "./galery";
 import { Info } from "./info";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 
 export const ProductContent = () => {
