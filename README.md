@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# 🛒 Goods4You
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Goods4You is a modern React + TypeScript shop app. Users log in, browse products, search the catalog, and manage their personal cart.
 
-Currently, two official plugins are available:
+🔗 **Live demo:** https://goods4you-self.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔐 Demo Login
 
-## Expanding the ESLint configuration
+Sign in with one of these test accounts (DummyJSON):
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+| Username | Password | Cart |
+| --- | --- | --- |
+| `liamg` | `liamgpass` | Has items |
+| `emilys` | `emilyspass` | Empty |
 
-- Configure the top-level `parserOptions` property like this:
+## ⚙️ Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React 18
+- TypeScript
+- Redux Toolkit / RTK Query
+- React Router v7
+- SCSS Modules
+- Vitest / React Testing Library
+- Storybook
+- Vercel for deployment
+
+## 🚀 Getting Started
+
+Clone the repository and start the app locally:
+
+```bash
+git clone https://github.com/Al1shal1/goods4you.git
+cd goods4you
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Then open http://localhost:5173
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## ✅ Features
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- 🔑 Login with username and password
+- 🔎 Search products by title
+- 🛍️ Browse catalog with "Show more"
+- 📄 Product page with gallery and description
+- 🛒 Cart: add, remove, change quantity, see total
+- 📱 Responsive layout
