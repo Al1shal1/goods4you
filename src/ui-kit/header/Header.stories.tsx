@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 
 const store = setupStore();
 
-const meta: Meta<typeof Headers> = {
+const meta: Meta<typeof Header> = {
     title: "Компоненты/Header",
     component: Header,
     tags: ["autodocs"],
@@ -22,6 +22,6 @@ const meta: Meta<typeof Headers> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Headers>;
+type Story = StoryObj<typeof Header>;
 
 export const Primary: Story = {};

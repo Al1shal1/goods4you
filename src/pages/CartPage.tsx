@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Carts } from "@components/carts";
 
 export const CartPage = () => {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { RedButton } from "@ui-kit/red-button";
 import { useScrollToSection } from "@hooks/useScrollToSection";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export const NotFoundPage = () => {
   const { handleScrollToSection } = useScrollToSection();

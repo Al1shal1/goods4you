@@ -1,14 +1,27 @@
 import { LogoImg } from "@icons/LogoImg.js";
 import cart from "@icons/cart.svg";
 import styles from "./Header.module.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@hooks/redux";
 import { resetProducts } from "@store/productSlice";
+import { setUserId } from "@store/userSlice";
 
-export const Header = () => {
+interface HeaderProps {
+  user: { firstName: string; lastName: string } | null;
+}
+
+export const Header = ({ user }: HeaderProps) => {
 
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(resetProducts());
+    dispatch(setUserId(null));
+    navigate("/login");
+  };
 
   return (
     <header className={styles.header}>
@@ -29,19 +42,18 @@ export const Header = () => {
             <li className={styles.header__navigation_item}>
               <Link to="/cart"
                 className={styles.header__navigation_busket}
-                onClick={() => {
-                  dispatch(resetProducts());
-                }}
               >
                 Cart
               </Link>
               <img src={cart} className={styles.header__busket} alt="" role="presentation" />
-              {carts && carts.totalQuantity > 0 ? (
+              {carts?.totalQuantity ? (
                 <div className={styles.header__busket_counter}>{carts.totalQuantity}</div>
               ) : null}
             </li>
             <li className={styles.header__navigation_item}>
-              <a href="/">Johnson Smith</a>
+              <button className={styles.header__navigation__user} onClick={handleLogout}>
+                {user ? `${user.firstName} ${user.lastName}` : "User"}
+              </button>
             </li>
           </ul>
         </div>
